@@ -1,0 +1,27 @@
+<%@ Page Language="C#" MasterPageFile="~/Stypendia.master" AutoEventWireup="true" CodeFile="Uzytkownicy.aspx.cs" Inherits="Administracja_Uzytkownicy" Title="Untitled Page" %>
+
+<%@ Register Src="../Komponenty/UzytkownikView.ascx" TagName="UzytkownikView" TagPrefix="uc2" %>
+<%@ Register Src="../Komponenty/RolaList.ascx" TagName="RolaList" TagPrefix="uc3" %>
+
+<%@ Register Src="../Komponenty/UzytkownikList.ascx" TagName="UzytkownikList" TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
+    <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+        <asp:View ID="View1" runat="server">
+            <uc1:UzytkownikList ID="UzytkownikList1" runat="server" />
+        </asp:View>
+        <asp:View ID="View2" runat="server">
+            <uc2:UzytkownikView Id="UzytkownikView1" runat="server" />
+            <br />
+            <asp:Button ID="ButtonZapisz" runat="server" OnClick="ButtonZapisz_Click" Text="Zapisz" />
+            <asp:Button ID="ButtonAnuluj" runat="server" CausesValidation="False" OnClick="ButtonAnuluj_Click"
+                Text="Anuluj" />
+            <br />
+            <br />
+            <uc3:RolaList ID="RolaList1" runat="server" />
+        </asp:View>
+    </asp:MultiView>
+
+
+
+</asp:Content>
+

@@ -1,0 +1,3710 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WilsonORMapper</name>
+    </assembly>
+    <members>
+        <member name="T:Wilson.ORMapper.Query.OPathException">
+            <summary>
+            Exception that is thrown when an OPath expression is invalid.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of this class with the specified error message.
+            </summary>
+            <param name="message">A message that describes the current exception.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of this class with a specified error message
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">A message that describes the current exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectSet`1">
+            <summary>
+                ObjectSet is a One-Way(Read) Bindable Collection of Objects
+            </summary>
+            <example>The following example shows how to use the ObjectSet to
+            retrieve all Contacts and bind them to a data grid.
+            <code>
+            <![CDATA[
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            ObjectSet<Contact> contacts = Manager.GetObjectSet<Contact>(string.Empty);
+            
+            dataGrid.DataSource = contacts;
+            dataGrid.DataBind();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="T:Wilson.ORMapper.IObjectSet`1">
+            <summary>
+            <![CDATA[
+                Common Interface used for ObjectSet<T> and ObjectList<T>
+            ]]>
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.IObjectPage">
+            <summary>
+                Common Interface used for ObjectSet, ObjectList, and ObjectReader
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.IObjectPage.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.IObjectPage.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.IObjectPage.PageCount">
+            <summary>The total number of pages</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.IObjectPage.TotalCount">
+            <summary>The total number of objects</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet`1.GetObject(System.Object)">
+            <summary>Gets an object instance with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+            <returns>An object instance</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet`1.Add(System.Object,`0)">
+            <summary>Adds an object to the collection</summary>
+            <param name="objectKey">The key for the object</param>
+            <param name="entityObject">The entity object to add to the collection</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet`1.RemoveByKey(System.Object)">
+            <summary>Removes an object from the collection with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.ToString">
+            <summary>
+            Returns a string representing the type of this ObjectSet and the type of objects held.
+            </summary>
+            <returns>A string value.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.GetObject(System.Object)">
+            <summary>
+                Gets an object instance with the specified key
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+            <returns>
+                An object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.Add(System.Object,`0)">
+            <summary>
+                Adds an object to the collection
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+            <param name="entityObject" type="object">
+            	The entity object to add to the collection
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.RemoveByKey(System.Object)">
+            <summary>
+                Removes an object from the collection with the specified key
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.Add(System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use other Add Signature</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.Insert(System.Int32,System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use Add instead of Insert</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.Clear">
+            <summary>Removes all object from the collection</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.Remove(System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use RemoveKey instead of Remove</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet`1.RemoveAt(System.Int32)">
+            <summary>Not Supported</summary>
+            <remarks>Use RemoveKey instead of RemoveAt</remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.PageCount">
+            <summary>The total number of pages for the query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.TotalCount">
+            <summary>The total number of objects for the query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.Item(System.Int32)">
+            <summary>Gets or sets the element at the specified index.</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.IsReadOnly">
+            <summary>True if collection is readonly</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet`1.IsFixedSize">
+            <summary>True if collection is fixed sized</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectList">
+            <summary>
+            	ObjectList is used for Lazy Loading Child ObjectSets
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ILoadOnDemand">
+            <summary>
+                Common Interface used for ObjectHolder and ObjectList
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ILoadOnDemand.Resync">
+            <summary>Get the Latest Version of Object from Database</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ILoadOnDemand.IsLoaded">
+            <summary>The Object has been Loaded from the Database</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.IObjectSet">
+            <summary>
+                Common Interface used for ObjectSet and ObjectList
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet.GetObject(System.Object)">
+            <summary>Gets an object instance with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+            <returns>An object instance</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet.Add(System.Object,System.Object)">
+            <summary>Adds an object to the collection</summary>
+            <param name="objectKey">The key for the object</param>
+            <param name="entityObject">The entity object to add to the collection</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectSet.RemoveByKey(System.Object)">
+            <summary>Removes an object from the collection with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Resync">
+            <summary>Get the Latest Version of Object from Database</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.ToString">
+            <summary>
+            Returns a string representing the type of list and the type of objects held.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.GetObject(System.Object)">
+            <summary>Gets an object instance with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+            <returns>An object instance</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Add(System.Object,System.Object)">
+            <summary>Adds an object to the collection</summary>
+            <param name="objectKey">The key for the object</param>
+            <param name="entityObject">The entity object to add to the collection</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.RemoveByKey(System.Object)">
+            <summary>Removes an object from the collection with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Add(System.Object)">
+            <summary>
+            Adds an object to the list.
+            </summary>
+            <param name="entityObject">Object to be added.</param>
+            <returns>The index of the object in the list.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts an element into the list at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="entityObject">The Object to insert.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Clear">
+            <summary>
+            Removes all objects from this list.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Remove(System.Object)">
+            <summary>
+            Removes a specific item from the list.
+            </summary>
+            <param name="entityObject">Object to be removed from the list.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified location in the list.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.Contains(System.Object)">
+            <summary>
+            Determines whether the list contains a specific item.
+            </summary>
+            <param name="entityObject">Object to locate in the list.</param>
+            <returns>True if the item is in the list; otherwise, false.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.IndexOf(System.Object)">
+            <summary>
+            Determines the index of a specific item in the list.
+            </summary>
+            <param name="entityObject">Object to locate in the list</param>
+            <returns>Index of the item in the list.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the elements of the list to an array, starting at a particular point in the array.
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the list.
+            </summary>
+            <returns>An IEnumerator for the entire list.</returns>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.IsLoaded">
+            <summary>The Object has been Loaded from the Database</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.PageCount">
+            <summary>The total number of pages</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.TotalCount">
+            <summary>The total number of objects</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.IsReadOnly">
+            <summary>
+            Gets a value indicating if this list is read-only.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.IsFixedSize">
+            <summary>
+            Gets a value indicating if the size of this list is fixed.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to the list is thread-safe.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.Count">
+            <summary>
+            Gets the number of items in the list.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the list.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.IObjectNotification">
+            <summary>
+                Optional Interface used to catch Events
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnCreated(Wilson.ORMapper.Transaction)">
+            <summary>Triggered after an entity object is created in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnCreating(Wilson.ORMapper.Transaction)">
+            <summary>Triggered before an entity object is created in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnDeleted(Wilson.ORMapper.Transaction)">
+            <summary>Triggered after an entity object is deleted in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnDeleting(Wilson.ORMapper.Transaction)">
+            <summary>Triggered before an entity object is deleted in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnMaterialized(System.Data.IDataRecord)">
+            <summary>Triggered when an entity object is materialized from the database</summary>
+            <param name="dataRecord">The current dataRecord used to materialize object</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnPersistError(Wilson.ORMapper.Transaction,System.Exception)">
+            <summary>Triggered when an error has occurred persisting an entity object</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+            <param name="exception">The current exception encountered in persistence</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnUpdated(Wilson.ORMapper.Transaction)">
+            <summary>Triggered after an entity object is updated in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="M:Wilson.ORMapper.IObjectNotification.OnUpdating(Wilson.ORMapper.Transaction)">
+            <summary>Triggered before an entity object is updated in the database</summary>
+            <param name="transaction">The current transaction object for custom cases</param>
+        </member>
+        <member name="T:Wilson.ORMapper.SelectProcedure">
+            <summary>
+                The SelectProcedure class is used to load an entity
+                object collection with a stored procedure.
+            </summary>
+            <example>The following example shows how to use the
+            SelectProcedure to get all Contacts with names that start with A.
+            	<code>
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            // Get All Contacts with Names that start with A
+            SelectProcedure selectProc = new SelectProcedure(typeof(Contact), "RetrieveContacts");
+            selectProc.AddParameter("@ContactName", "A");
+            ObjectSet contacts = Manager.GetObjectSet(selectProc);
+            	</code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.ParameterName(System.Int32)">
+            <summary>Collection of procedure parameter names</summary>
+            <param name="index">The index of the parameter name to retrieve</param>
+            <returns>The parameter name</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.ParameterValue(System.Int32)">
+            <summary>Collection of procedure parameter values</summary>
+            <param name="index">The index of the parameter value to retrieve</param>
+            <returns>The parameter value</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.#ctor(System.Type,System.String)">
+            <summary>Creates a new SelectProcedure instance</summary>
+            <param name="objectType">The type of object to retrieve with this procedure</param>
+            <param name="procedureName">The name of the procedure to be executed</param>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.AddParameter(System.String,System.Object)">
+            Modified by Ben Priebe (http://stickfly.com) - 05-Aug-2004
+            Includes Null-Value Assistance from Tim Byng (http://www.missioninc.com)
+            <summary>The number of parameters in the parameters collection</summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="parameterValue">The value of the parameter</param>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.AddParameter(System.String,System.Object,System.Object)">
+            Added by Ben Priebe (http://stickfly.com) - 05-Aug-2004
+            Includes Null-Value Assistance from Tim Byng (http://www.missioninc.com)
+            <summary>The number of parameters in the parameters collection</summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="parameterValue">The value of the parameter</param>
+            <param name="nullValue">The value that should be interpreted as DBNull for this parameter type </param>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure.AddParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            Output Parameter Support by Alister McIntyre (http://www.aruspex.com.au)
+            <summary>The number of parameters in the parameters collection</summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="parameterValue">The value of the parameter</param>
+            <param name="direction">The direction of the parameter</param>
+        </member>
+        <member name="P:Wilson.ORMapper.SelectProcedure.ObjectType">
+            <summary>The type of object to retrieve with this procedure</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.SelectProcedure.ProcedureName">
+            <summary>The name of the procedure to be executed</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.SelectProcedure.ParameterCount">
+            <summary>The number of parameters in the parameters collection</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.IObjectHelper">
+            <summary>
+                Optional Interface used to increase Performance by using
+                an indexer instead of reflection to get/set property values.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.IObjectHelper.Item(System.String)">
+            <summary>
+                The Item indexer for the object.  This property is used
+                to increase performance with loading and persisting the object.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.IInterceptCommand">
+            <summary>
+                Optional Interface used for Intercepting all Database Commands so
+                that Logging can be implemented or Sql Commands modified if needed.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.IInterceptCommand.InterceptCommand(System.Guid,System.Type,Wilson.ORMapper.CommandInfo,System.Data.IDbCommand)">
+            <summary>
+                Method to implement to handle Interception of all Database Commands.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.CommandInfo">
+            <summary>
+            Information about the type of database command being intercepted.
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.BeginTran">
+            <summary>A New Transaction was Started.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.CommitTran">
+            <summary>The Transaction was Committed.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.RollbackTran">
+            <summary>The Transaction was Rolled Back.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.GetScalar">
+            <summary>ExecuteScalar method was called.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.GetCount">
+            <summary>A Count of Objects was returned.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.Select">
+            <summary>GetObject/Set/Reader/Collection.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.Insert">
+            <summary>PersistChanges for New Objects.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.Update">
+            <summary>PersistChanges for Updated Objects.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.Delete">
+            <summary>PersistChanges for Marked Deletes.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.DataSet">
+            <summary>The GetDataSet method was called.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.Command">
+            <summary>ExecuteCommand method was called.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.BatchUpdate">
+            <summary>ExecuteUpdate method was called.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.BatchDelete">
+            <summary>ExecuteDelete method was called.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.ManyInsert">
+            <summary>Insert for Many-to-Many Relations.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.ManyDelete">
+            <summary>Delete for Many-to-Many Relations.</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.CommandInfo.CascadeDelete">
+            <summary>Cascade Delete of Child Relations.</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.ObjectExpression">
+            <summary>
+            The ObjectExpression is used to compile an object query for use by the ObjectSpace engine when returning objects from
+            the data source. A CompiledQuery can be used to return a "read-only" ObjectReader, and can also be cached for a
+            performance gain if your application is making multiple calls for the same query results.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.ObjectExpression.Compile(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Compiles this ObjectExpression using the mappings found the specified ObjectSpace instance.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>A CompiledQuery that is the result of this instance being compiled.</returns>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.ObjectExpression.ObjectType">
+            <summary>
+            Gets the class type of this expression.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Provider">
+            <summary>
+                The database provider type
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.MsSql">
+            <summary>Microsoft SQL Server Provider</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.Access">
+            <summary>Microsoft Access Provider</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.Oracle">
+            <summary>Oracle Provider</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.OleDb">
+            <summary>OleDB Provider</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.Odbc">
+            <summary>ODBC Provider</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.Provider.Sql2005">
+            <summary>MS SQL Server 2005 Provider</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.KeyType">
+            <summary>
+                The primary key types
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.KeyType.Auto">
+            <summary>Database Generated Key</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.KeyType.Guid">
+            <summary>ORMapper Generates Guid</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.KeyType.User">
+            <summary>User Provides the Key</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.KeyType.Composite">
+            <summary>User Multiple Column Key</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.KeyType.None">
+            <summary>For Read-Only Cases/Views</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.InitialState">
+            <summary>
+                The initial state of an object
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.InitialState.Inserted">
+            <summary>New Record</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.InitialState.Unchanged">
+            <summary>Existing not Modified</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.InitialState.Updated">
+            <summary>Existing and Modified</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectState">
+            <summary>
+                The current state of an object
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ObjectState.Inserted">
+            <summary>New but not Inserted</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ObjectState.Unchanged">
+            <summary>Existing not Modified</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ObjectState.Updated">
+            <summary>Existing and Modified</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ObjectState.Deleted">
+            <summary>Marked for Deletion</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ObjectState.Unknown">
+            <summary>Actually Deleted</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.PersistDepth">
+            <summary>
+                The depth at which to persist child objects
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.PersistDepth.SingleObject">
+            <summary>Save Only the Immediate Entity Object</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.PersistDepth.ObjectGraph">
+            <summary>Save Changes to Related Children Also</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.PersistType">
+            <summary>
+                The primary key types
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.PersistType.Persist">
+            <summary>Save Field Changes in Insert and Update</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.PersistType.ReadOnly">
+            <summary>Do Not Save Changes in Insert or Update</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.PersistType.Concurrent">
+            <summary>Read-Only and Use to Check Concurrency</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ComparisonOperators">
+            <summary>
+                Comparison operators test whether or not two expressions are the same.
+            </summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.Equals">
+            <summary>Equal to Operator</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.GreaterThan">
+            <summary>Greater than Operator</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.GreaterThanEqual">
+            <summary>Greater than or equal to Operator</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.IsNotNull">
+            <summary>Determines whether or not a given expression is NULL</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.IsNull">
+            <summary>Determines whether or not a given expression is NULL</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.LessThan">
+            <summary>Less than</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.LessThanEqual">
+            <summary>Less than or equal to Operator</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.Like">
+            <summary>Determines whether or not a given character string matches a specified pattern</summary>
+        </member>
+        <member name="F:Wilson.ORMapper.ComparisonOperators.NotEqual">
+            <summary>Not equal to Operator</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ORMapperException">
+            <summary>
+            ORMapper General Exception
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.MappingException">
+            <summary>
+            ORMapper Mapping Exception
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.PersistenceException">
+            <summary>
+            ORMapper Persistence Exception
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.OPath">
+            <summary>
+            Represents the OPath query language parser.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPath.Parse(Wilson.ORMapper.OPathQuery,Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Parses an OPath query into an ObjectExpression using the mappings from the specified ObjectSpace.
+            </summary>
+            <param name="query">OPathQuery to be processed.</param>
+            <param name="os">ObjectSpaces containing the mappings to use.</param>
+            <returns>ObjectExpression containing the parser results, which are ready to be compiled.</returns>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.BaseQuery">
+            <summary>
+            Provides the abstract base class for object-based queries written in the OPath query language.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.BaseQuery.CommandTimeout">
+            <summary>
+            Gets or sets the maximum time (in seconds) this query will be allowed to execute before it is terminated. The default is 30 seconds.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.BaseQuery.Parameters">
+            <summary>
+            Gets the collection of parameters associated to this query.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.BaseQuery.WhereExpression">
+            <summary>
+            Gets the OPath expression that represents the search criteria of the query.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.OPathParameterCollection">
+            <summary>
+            Represents a collection of parameters for use with an OPathQuery.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.OPathParameterTable">
+            <summary>
+            Represents a collection of parameters for use with an OPathQuery.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterTable.Add(Wilson.ORMapper.Query.OPathParameter)">
+            <summary>
+            Adds a parameter to this instance.
+            </summary>
+            <param name="parameter">Parameter to add.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterTable.Contains(System.String)">
+            <summary>
+            Determines whether a parameter with the specified name is in the collection.
+            </summary>
+            <param name="name">Name of the parameter to find.</param>
+            <returns>True if parameter is found; otherwise, false.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterTable.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the collection.
+            </summary>
+            <returns>An IEnumerator for the entire collection.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterTable.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the entire list to a compatible one-dimensional Array, starting at the specified index of the target array.
+            </summary>
+            <param name="array">The one-dimensional Array that is the destination of the elements to be copied.</param>
+            <param name="index">The zero-based index in the Array at which copying begins.</param>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameterTable.Count">
+            <summary>
+            Gets the number of parameters contained in this instance.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameterTable.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to this collection is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameterTable.Item(System.Int32)">
+            <summary>
+            Gets the parameter at the specified index.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameterTable.Item(System.String)">
+            <summary>
+            Gets the parameter with the specified name.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameterTable.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the instance.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterCollection.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterCollection.Add(System.String,System.Type)">
+            <summary>
+            Adds a new parameter to the collection.
+            </summary>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="parameterType">Type of the parameter.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterCollection.Add(System.String,System.Object)">
+            <summary>
+            Adds a new parameter to the collection.
+            </summary>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="parameterValue">Value of the parameter.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.Query.OPathParameterCollection.Add(System.String,System.Type,System.Object)">
+            <summary>
+            Adds a new parameter to the collection.
+            </summary>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="parameterType">Type of the parameter.</param>
+            <param name="parameterValue">Value of the parameter.</param>
+        </member>
+        <member name="T:Wilson.ORMapper.OPathQuery`1">
+            <summary>
+            Represents criteria for searching objects in a data store using queries written in the OPath language.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.OPathQuery">
+            <summary>
+            Represents criteria for searching objects in a data store using queries written in the OPath language.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery.#ctor(System.Type,System.String)">
+            <summary>
+            Creates a new instances of this class.
+            </summary>
+            <param name="objectType">Type of object to be queried.</param>
+            <param name="whereExpression">OPath query expression defining the criteria for objects returned.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery.#ctor(System.Type,System.String,System.String)">
+            <summary>
+            Creates a new instances of this class.
+            </summary>
+            <param name="objectType">Type of object to be queried.</param>
+            <param name="whereExpression">OPath query expression defining the criteria for objects returned.</param>
+            <param name="sortExpression">OPath sort expression defining the order of the objects returned.</param>
+            <remarks>
+            This overload conflicts with the (type, where, span) overload in the Longhorn 4074 spec.
+            There is currently no support for spans and no plans to add support in the near future.
+            </remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery.Compile(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Compiles this OPathQuery using the mappings found in the specified ObjectSpace instance.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>A CompiledQuery that is the result of this instance being compiled.</returns>
+        </member>
+        <member name="P:Wilson.ORMapper.OPathQuery.ObjectType">
+            <summary>
+            Gets the Type of the objects returned by this query.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.OPathQuery.SortExpression">
+            <summary>
+            Gets the OPath expression that represents the sort criteria of the query.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.#ctor(System.String)">
+            <summary>
+            Creates a new instances of this class.
+            </summary>
+            <param name="whereExpression">OPath query expression defining the criteria for objects returned.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instances of this class.
+            </summary>
+            <param name="whereExpression">OPath query expression defining the criteria for objects returned.</param>
+            <param name="sortExpression">OPath sort expression defining the order of the objects returned.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.Compile(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Compiles this OPathQuery using the mappings found in the specified ObjectSpace instance.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>A CompiledQuery that is the result of this instance being compiled.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetObject(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Executes this OPathQuery against an ObjectSpace data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetObject(Wilson.ORMapper.ObjectSpace,System.Object[])">
+            <summary>
+            Executes this OPathQuery against an ObjectSpace data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetObjectSet(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Executes this OPathQuery against an ObjectSpace data store and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetObjectSet(Wilson.ORMapper.ObjectSpace,System.Object[])">
+            <summary>
+            Executes this OPathQuery against an ObjectSpace data store and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetArray(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Executes this query against an ObjectSpace data store and returns an array filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>An array filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetArray(Wilson.ORMapper.ObjectSpace,System.Object[])">
+            <summary>
+            Executes this query against an ObjectSpace data store and returns an array filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An array filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetList(Wilson.ORMapper.ObjectSpace)">
+            <summary>
+            Executes this query against an ObjectSpace data store and returns an array filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <returns>An array filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.OPathQuery`1.GetList(Wilson.ORMapper.ObjectSpace,System.Object[])">
+            <summary>
+            Executes this query against an ObjectSpace data store and returns an array filled with the results.
+            </summary>
+            <param name="os">ObjectSpace instance to use.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An array filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectHolder`1">
+            <summary>
+                ObjectHolder is used for Lazy Loading Parent Objects
+            </summary>ne
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectHolder">
+            <summary>
+                ObjectHolder is used for Lazy Loading Parent Objects
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectHolder.Resync">
+            <summary>Get the Latest Version of Object from Database</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectHolder.IsLoaded">
+            <summary>The Object has been Loaded from the Database</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectHolder.Key">
+            <summary>The key for the object</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectHolder.InnerObject">
+            <summary>The inner object to load when needed</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectHolder`1.InnerObject">
+            <summary>The inner object to load when needed</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectReader`1">
+             <summary>
+            		ObjectReader uses a Forward-Only Read-Only Live Database Cursor
+            	</summary>
+            	<example>The following example shows how to use the ObjectReader to
+            	retrieve all Contacts.
+            	<code>
+             <![CDATA[
+            	public static ObjectSpace Manager; // See Initialization Example
+            
+            	// Retrieve ObjectReader Cursor of All Contact Object -- Custom Processing
+            	ObjectReader<Contact> cursor = Manager.GetObjectReader<Contact>(String.Empty);
+            	while (cursor.Read()) {
+            		Contact contact = cursor.Current();
+            	}
+            	cursor.Close();
+             ]]>
+            	</code>
+            	</example>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectReader">
+             <summary>
+            		ObjectReader uses a Forward-Only Read-Only Live Database Cursor
+            	</summary>
+            	<example>The following example shows how to use the ObjectReader to
+            	retrieve all Contacts.
+            	<code>
+            	public static ObjectSpace Manager; // See Initialization Example
+            
+            	// Retrieve ObjectReader Cursor of All Contact Object -- Custom Processing
+            	ObjectReader cursor = Manager.GetObjectReader(typeof(Contact), String.Empty);
+            	while (cursor.Read()) {
+            		Contact contact = (Contact) cursor.Current();
+            	}
+            	cursor.Close();
+            	</code>
+            	</example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.ToString">
+            <summary>
+            Returns a string representing the type of this ObjectSet and the type of objects held.
+            </summary>
+            <returns>A string value.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Current">
+            <summary>The current object of the ObjectReader</summary>
+            <returns>The current object instance</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.ObjectKey">
+            <summary>Get the key for the current object</summary>
+            <returns>The key for the current object</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Read">
+            <summary>Advances the ObjectReader to the next record.</summary>
+            <returns>True if there are more objects; otherwise, false.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Close">
+            <summary>Close the ObjectReader</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the reader.
+            </summary>
+            <returns>An IEnumerator for the entire reader.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Reset">
+            <summary>Not Supported. ObjectReader Enumerator is Forward-Only</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.MoveNext">
+            <summary>Advances the ObjectReader to the next record.</summary>
+            <returns>True if there are more objects; otherwise, false.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Dispose">
+            <summary>Close the ObjectReader</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader.Finalize">
+            <summary>
+            Frees resources and perform other cleanup operations before this instance is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.PageCount">
+            <summary>The total number of pages</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.TotalCount">
+            <summary>The total number of objects.</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.HasObjects">
+            <summary>Gets a value indicating whether the ObjectReader contains one or more objects.</summary>
+            <value>True if the ObjectReader contains one or more objects; otherwise false.</value>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectReader.IsClosed">
+            <summary>Gets a value indicating whether the reader is closed</summary>
+            <value>True if the ObjectReader is closed; otherwise, false.</value>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectReader`1.Current">
+            <summary>The current object of the ObjectReader</summary>
+            <returns>The current object instance</returns>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectQuery`1">
+             <summary>
+                 The ObjectQuery class is used to create more detailed
+                 queries, including paging.
+             </summary>
+             <example>The following example gets a paged collection of Contacts.
+            		<code>
+             <![CDATA[
+            	public static ObjectSpace Manager; // See Initialization Example
+            
+             QueryHelper helper = Manager.QueryHelper;
+             string where = helper.GetExpression("Contact.Company", "WilsonDotNet.com");
+             string sort = helper.GetFieldName("Contact.Name") + " ASC";
+             int pageSize = 25;
+             int currentPage = 3;
+            
+            	ObjectQuery<Contact> pageQuery = new ObjectQuery<Contact>(where, sort, pageSize, currentPage);
+            	ObjectSet<Contact> pageContacts = Manager.GetObjectSet<Contact>(pageQuery);
+             ]]>
+            		</code>
+             </example>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectQuery">
+             <summary>
+                 The ObjectQuery class is used to create more detailed
+                 queries, including paging.
+             </summary>
+             <example>The following example gets a paged collection of Contacts.
+            		<code>
+            	public static ObjectSpace Manager; // See Initialization Example
+            
+             QueryHelper helper = Manager.QueryHelper;
+             string where = helper.GetExpression("Contact.Company", "WilsonDotNet.com");
+             string sort = helper.GetFieldName("Contact.Name") + " ASC";
+             int pageSize = 25;
+             int currentPage = 3;
+            
+            	ObjectQuery pageQuery = new ObjectQuery(typeof(Contact), where, sort, pageSize, currentPage);
+            	ObjectSet pageContacts = Manager.GetObjectSet(pageQuery);
+            		</code>
+             </example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery.#ctor(System.Type,System.String,System.String)">
+            <summary>
+                Creates a ObjectQuery to return a full collection
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+                Creates a ObjectQuery to return a paged collection
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+            <param name="pageSize" type="int">
+                The number of records in each page
+            </param>
+            <param name="pageIndex" type="int">
+                The page number to return
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+                Creates a ObjectQuery to return a paged collection
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+            <param name="pageSize" type="int">
+                The number of records in each page
+            </param>
+            <param name="pageIndex" type="int">
+                The page number to return
+            </param>
+            <param name="skipCounts" type="bool">
+                Skip PageCount and TotalCount
+            </param>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.ObjectType">
+            <summary>The object type used for this query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.WhereClause">
+            <summary>The where clause used for this query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.SortClause">
+            <summary>The sort clause used for this query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.PageSize">
+            <summary>The number of records in each page</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectQuery.SkipCounts">
+            <summary>Skip PageCount and TotalCount</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery`1.#ctor(System.String,System.String)">
+            <summary>
+                Creates a ObjectQuery to return a full collection
+            </summary>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery`1.#ctor(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+                Creates a ObjectQuery to return a paged collection
+            </summary>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+            <param name="pageSize" type="int">
+                The number of records in each page
+            </param>
+            <param name="pageIndex" type="int">
+                The page number to return
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectQuery`1.#ctor(System.String,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+                Creates a ObjectQuery to return a paged collection
+            </summary>
+            <param name="whereClause" type="string">
+            	The SQL where clause to use when retrieving data
+            </param>
+            <param name="sortClause" type="string">
+                The SQL sort clause to use when retrieving data
+            </param>
+            <param name="pageSize" type="int">
+                The number of records in each page
+            </param>
+            <param name="pageIndex" type="int">
+                The page number to return
+            </param>
+            <param name="skipCounts" type="bool">
+                Skip PageCount and TotalCount
+            </param>
+        </member>
+        <member name="T:Wilson.ORMapper.CustomProvider">
+            <summary>
+                The CustomProvider class is the means to plug in a custom database provider,
+                including setting proper delimiters, identity query, and select page query.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.CustomProvider.#ctor(System.String,System.String,System.String)">
+            <summary>
+                The CustomProvider class is the means to plug in a custom database provider,
+                including setting proper delimiters, identity query, and select page query.
+            </summary>
+            <param name="adoAssemblyName">Assembly name of the ADO.NET custom provider</param>
+            <param name="connectionType">Type name of the ADO.NET IDbConnection class</param>
+            <param name="dataAdapterType">Type name of the ADO.NET IDbDataAdapter class</param>
+            <example>
+            <code>
+            MySql: "ByteFX.MySqlClient", "ByteFX.Data.MySqlClient.MySqlConnection", "ByteFX.Data.MySqlClient.MySqlDataAdapter"
+            PostgreSql: "Npgsql", "Npgsql.NpgsqlConnection", "Npgsql.NpgsqlDataAdapter"
+            Sqlite: "Finisar.SQLite", "Finisar.SQLite.SQLiteConnection", "Finisar.SQLite.SQLiteDataAdapter"
+            Firebird: "FirebirdSql.Data.Firebird", "FirebirdSql.Data.Firebird.FbConnection", "FirebirdSql.Data.Firebird.FbDataAdapter"
+            DB2: "IBM.Data.DB2", "IBM.Data.DB2.DB2Connection", "IBM.Data.DB2.DB2DataAdapter"
+            VistaDB: "VistaDB.Provider", "VistaDB.VistaDBConnection", "VistaDB.VistaDBDataAdapter"
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.StartDelimiter">
+            <summary>
+                Start and End Delimiters are placed around all table and field names.
+                The double quote is the default -- most databases support in ANSI mode.
+            </summary>
+            <example>
+            <code>
+            Default: "
+            MySql: `
+            PostgreSql: [
+            Sqlite: [
+            Firebird: "
+            DB2: `
+            VistaDB: [
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.EndDelimiter">
+            <summary>
+                Start and End Delimiters are placed around all table and field names.
+                The double quote is the default -- most databases support in ANSI mode.
+            </summary>
+            <example>
+            <code>
+            Default: "
+            MySql: `
+            PostgreSql: ]
+            Sqlite: ]
+            Firebird: "
+            DB2: `
+            VistaDB: ]
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.GuidDelimiter">
+            <summary>
+                Delimiters placed around Guid values -- if not the default single quote.
+            </summary>
+            <example>
+            <code>
+            Default: '
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.DateDelimiter">
+            <summary>
+                Delimiters placed around Date values -- if not the default single quote.
+            </summary>
+            <example>
+            <code>
+            Default: '
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.LineTerminator">
+            <summary>
+                Terminator at the end of each statement -- if not the default semi-colon.
+            </summary>
+            <example>
+            <code>
+            Default: ;
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.DateFormat">
+            <summary>
+                Format used for date values in SQL -- if not the default ToString().
+            </summary>
+            <example>
+            <code>
+            Default: yyyy-MM-dd HH:mm:ss
+            Oracle: dd-MMM-yyyy HH:mm:ss
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.ParameterPrefix">
+            <summary>
+                Prefix used to indicate parameters in SQL -- if not the default @ symbol.
+            </summary>
+            <example>
+            <code>
+            Default: @
+            PostgreSql: :
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.IdentityQuery">
+            <summary>
+                This should be the SQL statement to retrieve the last "identity" value.
+                Reference the name of the key field as {0} and the name of the table as {1}.
+            </summary>
+            <example>
+            <code>
+            Default: "SELECT MAX({0}) FROM {1}"
+            MySql: "SELECT LAST_INSERT_ID()"
+            PostgreSql: "SELECT currval('{1}_{0}_seq')"
+            Sqlite: "SELECT last_insert_rowid()"
+            Firebird: "SELECT gen_id(gen_{1}_id, 0) FROM RDB$DATABASE"
+            DB2: "VALUES IDENTITY_VAL_LOCAL()"
+            VistaDB: "SELECT LastIdentity({0}) FROM {1}"
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.SelectPageQuery">
+            <summary>
+                This should be the SQL statement to retrieve a specific "page" of data.
+                Reference the page size as {0}, skip rows as {1}, and start row as {2}.
+            </summary>
+            <example>
+            <code>
+            Default: null -- Not Supported
+            MySql: "SELECT * LIMIT {0} OFFSET {1}"
+            PostgreSql: "SELECT * LIMIT {0} OFFSET {1}"
+            Sqlite: "SELECT * LIMIT {0} OFFSET {1}"
+            Firebird: "SELECT FIRST {0} SKIP {1} *"
+            DB2: null -- Not Supported
+            VistaDB: "SELECT TOP {2}, {0} *"
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.ColumnAliasKeyword">
+            <summary>
+                Keyword used to alias field-names in SQL -- if not the default empty string.
+            </summary>
+            <example>
+            <code>
+            Default: AS
+            Oracle: String.Empty
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.MinimumDate">
+            <summary>
+                Minimum DateTime allowed in the database -- becomes value of DateTime.MinValue.
+            </summary>
+            <example>
+            <code>
+            Default: 0001-01-01
+            MS Sql: 1753-01-01
+            Oracle: 0001-01-01 (Oracle supports -4712-01-01, but .NET does not)
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.MaximumDate">
+            <summary>
+                Maximum DateTime allowed in the database -- becomes value of DateTime.MaxValue.
+            </summary>
+            <example>
+            <code>
+            Default: 9999-12-31
+            Oracle: 4712-01-01
+            </code>
+            </example>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.TrueLiteral">
+            <summary>
+            Gets or sets the SQL literal used to represent 'true'.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.FalseLiteral">
+            <summary>
+            Gets or sets the SQL literal used to represent 'false'.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.InequalityOperator">
+            <summary>
+            Gets or sets the SQL operator used to test for inequalities.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.ConcatenationOperator">
+            <summary>
+            Gets or sets the SQL operator used to concatenate two strings.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.ModulusFunction">
+            <summary>
+            Gets or sets a SQL expression which can compute the modulus between two operands.
+            Value must be a formatted string with two parameters: {0} for left operand, and {1} for right operand.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.LengthFunction">
+            <summary>
+            Gets or sets a SQL expression which can compute the number of characters in a string.
+            Value must be a formatted string with one parameter: {0} for the operand.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.LeftFunction">
+            <summary>
+            Gets or sets a SQL expression which can extract a specified number of characters from the left of a string.
+            Value must be a formatted string with two parameters: {0} for the value, {1} for the length.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.RightFunction">
+            <summary>
+            Gets or sets a SQL expression which can extract a specified number of characters from the right of a string.
+            Value must be a formatted string with two parameters: {0} for the value, {1} for the length.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.SubstringFunction">
+            <summary>
+            Gets or sets a SQL expression which can extract a substring from a string.
+            Value must be a formatted string with three parameters: {0} for the value, {1} for the start index, and {2} for the length.
+            Note: The start index is assumed to be one-based.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.TrimFunction">
+            <summary>
+            Gets or sets a SQL expression which can trim the whitespace from both sides of a string.
+            Value must be a formatted string with one parameter: {0} for the operand.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.LikeFunction">
+            <summary>
+            Gets or sets a SQL expression which can perform a LIKE comparison on a string.
+            Value must be a formatted string with two parameters: {0} for the value and {1} for the pattern.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.UpperCaseFunction">
+            <summary>
+            Gets or sets a SQL expression which can convert all lowercase characters in a string to uppercase.
+            Value must be a formatted string with one parameter: {0} for the value.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.CustomProvider.LowerCaseFunction">
+            <summary>
+            Gets or sets a SQL expression which can convert all uppercase characters in a string to lowercase.
+            Value must be a formatted string with one parameter: {0} for the value.
+            </summary>
+            <remarks>
+            This setting it required by the OPath Engine and used to generate database-specific queries.
+            </remarks>
+        </member>
+        <member name="T:Wilson.ORMapper.Transaction">
+            <summary>
+                The Transaction class is used to allow greater
+                control over the persistence of multiple objects.
+            </summary>
+            <example>The following example shows how to use Transaction:
+            	<code>
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            // Persist entityObject1 and entityObject2 in Transaction
+            Transaction transaction = null;
+            try {
+              transaction = Manager.BeginTransaction();
+              transaction.PersistChanges(entityObject1);
+              transaction.PersistChanges(entityObject2);
+              transaction.Commit();
+            }
+            catch {
+              transaction.Rollback();
+            }
+            finally {
+              transaction.Dispose();
+            }
+            	</code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.Commit">
+            <summary>
+                Commit the current transaction to the database.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.Rollback">
+            <summary>
+                Rollback the current transaction in the database.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Type,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Type,System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,System.Type,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,System.Type,System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.GetDataSet(System.Data.DataSet,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteCommand(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Directly Execute a Command where Needed
+            </summary>
+            <param name="selectProcedure" type="string">
+                The SelectProcedure to execute
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteCommand(System.String)">
+            <summary>
+                Directly Execute a Command where Needed
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteScalar(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Efficiently Retrieve a Single Value
+            </summary>
+            <param name="selectProcedure" type="string">
+                The SelectProcedure to execute
+            </param>
+            <returns>
+                The first column of the first row
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteScalar(System.String)">
+            <summary>
+                Efficiently Retrieve a Single Value
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                The first column of the first row
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteUpdate(System.Type,System.String,System.String)">
+            <summary>
+                Directly Execute an Update where Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="updateClause" type="string">
+                The SQL update clause to use when updating data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.ExecuteDelete(System.Type,System.String)">
+            <summary>
+                Directly Execute a Deletion where Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.PersistChanges(System.Object)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.PersistChanges(System.Collections.ICollection)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.PersistChanges(System.Object,Wilson.ORMapper.PersistDepth)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+            <param name="persistDepth" type="Wilson.ORMapper.PersistDepth">
+               The depth at which to persist child objects
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.PersistChanges(System.Collections.ICollection,Wilson.ORMapper.PersistDepth)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+            <param name="persistDepth" type="Wilson.ORMapper.PersistDepth">
+                The depth at which to persist child objects
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.Dispose">
+            <summary>Close the Connection of the Transaction</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Transaction.Finalize">
+            <summary>
+            Frees resources and perform other cleanup operations before this instance is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.CompiledQuery">
+            <summary>
+            Represents a pre-compiled query that can be executed by an ObjectSpace instance.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.CompiledQuery.ObjectType">
+            <summary>
+            Gets the Type of the objects returned by this query.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.CompiledQuery.SqlQuery">
+            <summary>
+            Gets the database-specific SELECT statement that is executed against the data store
+            when this CompiledQuery is used to retrieve objects.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.OPathParser">
+            <summary>
+            OPath Expression Parser Engine
+            </summary>
+            <remarks>
+            Parsing technique inspired by the class notes from:
+            Willamette University, Prof. Fritz Ruehr, CS 384 - Programming Languages
+            http://www.willamette.edu/~fruehr/348/lab3.html
+            </remarks>
+        </member>
+        <member name="T:Wilson.ORMapper.Query.OPathParameter">
+            <summary>
+            Represents a parameter for an OPathQuery.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameter.Name">
+            <summary>
+            Gets or sets the name of this parameter.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameter.ParameterType">
+            <summary>
+            Gets or sets the data type of value this parameter.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.Query.OPathParameter.Value">
+            <summary>
+            Gets of sets the value of this parameter.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectList`1">
+            <summary>
+            	ObjectList is used for Lazy Loading Child ObjectSets
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.ToString">
+            <summary>
+            Returns a string representing the type of list and the type of objects held.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Resync">
+            <summary>Get the Latest Version of Object from Database</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.GetObject(System.Object)">
+            <summary>Gets an object instance with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+            <returns>An object instance</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Add(System.Object,`0)">
+            <summary>Adds an object to the collection</summary>
+            <param name="objectKey">The key for the object</param>
+            <param name="entityObject">The entity object to add to the collection</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.RemoveByKey(System.Object)">
+            <summary>Removes an object from the collection with the specified key</summary>
+            <param name="objectKey">The key for the object</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.IndexOf(`0)">
+            <summary>
+            Determines the index of a specific item in the list.
+            </summary>
+            <param name="entityObject">Object to locate in the list</param>
+            <returns>Index of the item in the list.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts an element into the list at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="entityObject">The Object to insert.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified location in the list.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Add(`0)">
+            <summary>
+            Adds an object to the list.
+            </summary>
+            <param name="entityObject">Object to be added.</param>
+            <returns>The index of the object in the list.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Clear">
+            <summary>
+            Removes all objects from this list.
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Contains(`0)">
+            <summary>
+            Determines whether the list contains a specific item.
+            </summary>
+            <param name="entityObject">Object to locate in the list.</param>
+            <returns>True if the item is in the list; otherwise, false.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the elements of the list to an array, starting at a particular point in the array.
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.Remove(`0)">
+            <summary>
+            Removes a specific item from the list.
+            </summary>
+            <param name="entityObject">Object to be removed from the list.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectList`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the list.
+            </summary>
+            <returns>An IEnumerator for the entire list.</returns>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.IsLoaded">
+            <summary>The Object has been Loaded from the Database</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.PageCount">
+            <summary>The total number of pages</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.TotalCount">
+            <summary>The total number of objects</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.Count">
+            <summary>
+            Gets the number of items in the list.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectList`1.IsReadOnly">
+            <summary>
+            Gets a value indicating if this list is read-only.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.QueryHelper">
+            <summary>
+                The QueryHelper class helps build provider-specific expressions
+                for query where-clauses and sort-order field-names.
+            </summary>
+            <example>The following example shows how to use the QueryHelper to generate
+            the where clause for getting all contacts who's company is WilsonDotNet.com.
+            <code>
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            QueryHelper helper = Manager.QueryHelper;
+            string where = helper.GetExpression("Contact.Company", "WilsonDotNet.com");
+            string sort = helper.GetFieldName("Contact.Name") + " ASC";
+            
+            ObjectQuery query = new ObjectQuery(typeof(Contact), where, sort);
+            ObjectSet pageContacts = Manager.GetObjectSet(query);
+            </code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.GetFieldName(System.String)">
+            <summary>
+            	Returns the database provider-specific field-name, like [TableName].[FieldName],
+            	given an entity-alias object description, like ClassName.PropertyName.
+            </summary>
+            <param name="entityAlias">The entity alias to lookup</param>
+            <returns>The database provider-specific field-name</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.GetTableName(System.String)">
+            <summary>
+            	Returns the database provider-specific table-name, like [TableName],
+            	given an entity-type description, like ClassName or Namespace.ClassName.
+            </summary>
+            <param name="entityType">The entity type to lookup</param>
+            <returns>The database provider-specific table-name</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.GetExpression(System.String,System.Object)">
+            <summary>
+            	Returns the database provider-specific expression, like
+            	[TableName].[FieldName] = 'Value', given an entity-alias
+            	object description, like ClassName.PropertyName, and value
+            </summary>
+            <param name="entityAlias">The entity alias to use in the expression</param>
+            <param name="fieldValue">The value to use in the expression</param>
+            <returns>The database provider-specific expression</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.GetExpression(System.String,System.Object,Wilson.ORMapper.ComparisonOperators)">
+            <summary>
+            	Returns the database provider-specific expression, like
+            	[TableName].[FieldName] = 'Value', given an entity-alias
+            	object description, like ClassName.PropertyName, and value
+            </summary>
+            <param name="entityAlias">The entity alias to use in the expression</param>
+            <param name="fieldValue">The value to use in the expression</param>
+            <param name="comparison">The comparison operator to use with this expression</param>
+            <returns>The database provider-specific expression</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.GetExpression(System.String)">
+            <summary>
+            	Returns the database provider-specific expression from an OPath syntax
+            </summary>
+            <param name="opathClause">The OPath expression</param>
+            <remarks>
+            	OPath Syntax Converter provided by Oakleaf Enterprises (Mere Mortals .NET Framework)
+            	Kevin McNeish, Rick Strahl, John Miller, and Jason Mesches (http://www.OakleafSD.com)
+            </remarks>
+            <returns>The database provider-specific expression</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.CleanValue(System.Object)">
+            <summary>
+            Format a raw value as a string for SQL
+              and to protect against SQL injection
+            </summary>
+            <param name="value">User entered raw value</param>
+            <returns>String formatted value for SQL</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.QueryHelper.ChangeType(System.Object,System.Type)">
+            <summary>
+            Convert a value to another type -- supports Nullable types, unlike Convert.ChangeType.
+            </summary>
+            <param name="value">Value to be converted -- must be a value type.</param>
+            <param name="type">Type to convert value to -- must be a value type.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectSpace">
+            <summary>
+                The ObjectSpace class is the persistence engine that all work occurs through.
+            </summary>
+            <example>The following example shows how to use ObjectSpace to do some basic CRUD operations.
+            <code>
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            // Create Object using ObjectSpace's GetObject method
+            Contact contact = (Contact) Manager.GetObject(typeof(Contact));
+            contact.Name = "Wilson, Paul";
+            contact.Company = "WilsonDotNet.com";
+            Manager.PersistChanges(contact); // Insert into Database
+            int id = contact.Id; // Auto Identity assigned by Database
+            
+            // Retrieve Object by Primary Key using GetObject method
+            contact = (Contact) Manager.GetObject(typeof(Contact), id);
+            
+            // Update Object changes using the PersistChanges method
+            contact.Name = "Paul Wilson";
+            contact.Company = ""; // Configured to be the NullValue
+            Manager.PersistChanges(contact); // Update the Database
+            
+            // Delete Object using MarkForDeletion and PersistChanges
+            Manager.MarkForDeletion(contact); // Mark for Deletion
+            Manager.PersistChanges(contact); // Delete from Database
+            </code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.String,System.String,Wilson.ORMapper.Provider)">
+            <summary>
+                Use for In-Process Desktop Applications
+            </summary>
+            <param name="mappingFile" type="string">
+                A path to the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="providerType" type="Wilson.ORMapper.Provider">
+                The database provider type
+            </param>
+            <example> Create an instance of ObjectSpace for a Windows app using MS SQL
+            <code>
+            public static ObjectSpace Manager;
+            
+            string mappingFile = @"C:\Data\Examples\Contacts\Mappings.config";
+            string connectMsSql = "Server=(local);Database=Contacts;Trusted_Connection=True;";
+            
+            Manager = new ObjectSpace(mappingFile, connectMsSql, Provider.MsSql);
+            </code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.String,System.String,Wilson.ORMapper.CustomProvider)">
+            <summary>
+                Use for In-Process Desktop Applications
+            </summary>
+            <param name="mappingFile" type="string">
+                A path to the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="customProvider" type="Wilson.ORMapper.CustomProvider">
+                The database custom provider definition
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.IO.Stream,System.String,Wilson.ORMapper.Provider)">
+            <summary>
+                Use for In-Process Desktop Applications
+            </summary>
+            <param name="mappingStream" type="Stream">
+                A stream of the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="providerType" type="Wilson.ORMapper.Provider">
+                The database provider type
+            </param>
+            <example> Create an instance of ObjectSpace for a Windows app using MS SQL.
+            Note that the mapping file is an embedded resource.
+            <code>
+            public static ObjectSpace Manager;
+            
+            Stream mappingStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Mappings.config");
+            string connectMsSql = "Server=(local);Database=Contacts;Trusted_Connection=True;";
+            
+            Manager = new ObjectSpace(mappingStream, connectMsSql, Provider.MsSql);
+            </code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.IO.Stream,System.String,Wilson.ORMapper.CustomProvider)">
+            <summary>
+                Use for In-Process Desktop Applications
+            </summary>
+            <param name="mappingStream" type="Stream">
+                A stream of the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="customProvider" type="Wilson.ORMapper.CustomProvider">
+                The database custom provider definition
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.String,System.String,Wilson.ORMapper.Provider,System.Int32,System.Int32)">
+            <summary>
+                Use for Web and Remote Server Applications
+            </summary>
+            <param name="mappingFile" type="string">
+                A path to the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="providerType" type="Wilson.ORMapper.Provider">
+                The database provider type
+            </param>
+            <param name="sessionMinutes" type="int">
+                The number of minutes to keep data in a session
+            </param>
+            <param name="cleanupMinutes" type="int">
+                The number of minutes before the clean up timer runs
+            </param>
+            <example> Create an instance of ObjectSpace for a web or distributed application.
+            Note that entity values are tracked for 20 minutes, like web sessions.
+            Also note a timer is activated every 5 minutes to cleanup old values.
+            <code>
+            public static ObjectSpace Manager;
+            
+            string mappingFile = @"C:\Data\Examples\Contacts\Mappings.config";
+            string connectMsSql = "Server=(local);Database=Contacts;Trusted_Connection=True;";
+            
+            Manager = new ObjectSpace(mappingFile, connectMsSql, Provider.MsSql, 20, 5);
+            </code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.String,System.String,Wilson.ORMapper.CustomProvider,System.Int32,System.Int32)">
+            <summary>
+                Use for Web and Remote Server Applications
+            </summary>
+            <param name="mappingFile" type="string">
+                A path to the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="customProvider" type="Wilson.ORMapper.CustomProvider">
+                The database custom provider definition
+            </param>
+            <param name="sessionMinutes" type="int">
+                The number of minutes to keep data in a session
+            </param>
+            <param name="cleanupMinutes" type="int">
+                The number of minutes before the clean up timer runs
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.IO.Stream,System.String,Wilson.ORMapper.Provider,System.Int32,System.Int32)">
+            <summary>
+                Use for Web and Remote Server Applications
+            </summary>
+            <param name="mappingStream" type="Stream">
+                A stream of the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="providerType" type="Wilson.ORMapper.Provider">
+                The database provider type
+            </param>
+            <param name="sessionMinutes" type="int">
+                The number of minutes to keep data in a session
+            </param>
+            <param name="cleanupMinutes" type="int">
+                The number of minutes before the clean up timer runs
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.#ctor(System.IO.Stream,System.String,Wilson.ORMapper.CustomProvider,System.Int32,System.Int32)">
+            <summary>
+                Use for Web and Remote Server Applications
+            </summary>
+            <param name="mappingStream" type="Stream">
+                A stream of the mapping file
+            </param>
+            <param name="connectString" type="string">
+                A valid connection string for the database
+            </param>
+            <param name="customProvider" type="Wilson.ORMapper.CustomProvider">
+                The database custom provider definition
+            </param>
+            <param name="sessionMinutes" type="int">
+                The number of minutes to keep data in a session
+            </param>
+            <param name="cleanupMinutes" type="int">
+                The number of minutes before the clean up timer runs
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.SetInterceptor(Wilson.ORMapper.IInterceptCommand)">
+            <summary>
+                Set an Interceptor to Handle all Database Commands
+                for Logging or modifying Sql Commands as needed.
+                Set to null to stop interception for performance.
+            </summary>
+            <param name="interceptor">An implementation of IInterceptCommand.</param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(System.Type)">
+            <summary>
+                Create New Object and Start Tracking
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to create
+            </param>
+            <returns>
+                A new instance of the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(System.Type,System.Object)">
+            <summary>
+                Get Existing Object and Start Tracking
+            </summary>
+            <param name="objectType" type="System.Type">
+               The type of object to create
+            </param>
+            <param name="objectKey" type="object">
+               The key of the object to get
+            </param>
+            <returns>
+                A new instance of the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1">
+            <summary>
+                Create New Object and Start Tracking
+            </summary>
+            <returns>
+                A new instance of the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1(System.Object)">
+            <summary>
+                Get Existing Object and Start Tracking
+            </summary>
+            <param name="objectKey" type="object">
+               The key of the object to get
+            </param>
+            <returns>
+                A new instance of the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectKey(System.Object)">
+            <summary>
+                Get Primary Key of an Entity Object
+            </summary>
+            <param name="entityObject" type="object">
+               The object to look up the key from
+            </param>
+            <returns>
+                The key for the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectState(System.Object)">
+            <summary>
+                Get Current State of an Entity Object
+            </summary>
+            <param name="entityObject" type="object">
+               The object to get the state from
+            </param>
+            <returns>
+                A Wilson.ORMapper.ObjectState value
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectCount(System.Type,System.String)">
+            <summary>
+                Get Record Count given Where Clause
+            </summary>
+            <param name="objectType" type="System.Type">
+               The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+               The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                The number of rows found
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectCount(Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get Record Count given Where Clause
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+               The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                The number of rows found
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectCount``1(System.String)">
+            <summary>
+                Get Record Count given Where Clause
+            </summary>
+            <param name="whereClause" type="string">
+               The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                The number of rows found
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectCount``1(Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get Record Count given Where Clause
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+               The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                The number of rows found
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(System.Type,System.String)">
+            <summary>
+                Get a Forward-Only Read-Only Cursor
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Forward-Only Read-Only Cursor
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Forward-Only Read-Only Cursor using a stored procedure
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(System.String)">
+            <summary>
+                Get a Forward-Only Read-Only Cursor
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get a Forward-Only Read-Only Cursor
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.SelectProcedure{``0})">
+            <summary>
+                Get a Forward-Only Read-Only Cursor using a stored procedure
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                An ObjectReader instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(System.Type,System.String)">
+            <summary>
+                Get a One-Way(Read) Bindable Object Collection
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An ObjectSet collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a One-Way(Read) Bindable Object Collection
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                 An ObjectSet collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a One-Way Bindable Object Collection
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                A One-Way Bindable Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(System.String)">
+            <summary>
+                Get a One-Way(Read) Bindable Object Collection
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An ObjectSet collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get a One-Way(Read) Bindable Object Collection
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery used to generate the SQL where clause
+            </param>
+            <returns>
+                 An ObjectSet collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.SelectProcedure{``0})">
+            <summary>
+                Get a One-Way Bindable Object Collection
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                A One-Way Bindable Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,System.Type,System.String)">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="collectionType" type="System.Type">
+                The data type of the collection to create
+            </param>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="collectionType" type="System.Type">
+                The data type of the collection to create
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="collectionType" type="System.Type">
+                The data type of the collection to create
+            </param>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(System.String)">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.SelectProcedure{``0})">
+            <summary>
+                Get a Strongly Typed Object Collection
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                Strongly Typed Object Collection
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Type,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Type,System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,System.Type,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,Wilson.ORMapper.ObjectQuery)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,System.Type,System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(System.Data.DataSet,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.SelectProcedure{``0})">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.Data.DataSet,System.String)">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.Data.DataSet,Wilson.ORMapper.ObjectQuery{``0})">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.Data.DataSet,System.String,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.Data.DataSet,Wilson.ORMapper.ObjectQuery,System.String[])">
+            <summary>
+                Get a Raw DataSet with custom Fields
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="objectQuery" type="Wilson.ORMapper.ObjectQuery">
+                The ObjectQuery instance used to generate the SQL where clause
+            </param>
+            <param name="selectFields" type="string[]">
+                An array of fields to select
+            </param>
+            <returns>
+                A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(System.Data.DataSet,Wilson.ORMapper.SelectProcedure{``0})">
+            <summary>
+                Get a Raw DataSet where may be Needed
+            </summary>
+            <param name="dataSet">
+                The typed dataset to populate with the resultset
+            </param>
+            <param name="selectProcedure" type="Wilson.ORMapper.SelectProcedure">
+                A SelectProcdure instance used to define the stored procedure call
+            </param>
+            <returns>
+                 A System.Data.DataSet object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.BeginTransaction">
+            <summary>
+                Get a Transaction for greater control
+            </summary>
+            <returns>
+                A Transaction object for Persistence
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+                Get a Transaction for greater control
+            </summary>
+            <param name="isolationLevel">
+                The IsolationLevel for the Transaction
+            </param>
+            <returns>
+                A Transaction object for Persistence
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteCommand(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Directly Execute a Command where Needed
+            </summary>
+            <param name="selectProcedure" type="string">
+                The SelectProcedure to execute
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteCommand(System.String)">
+            <summary>
+                Directly Execute a Command where Needed
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteScalar(Wilson.ORMapper.SelectProcedure)">
+            <summary>
+                Efficiently Retrieve a Single Value
+            </summary>
+            <param name="selectProcedure" type="string">
+                The SelectProcedure to execute
+            </param>
+            <returns>
+                The first column of the first row
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteScalar(System.String)">
+            <summary>
+                Efficiently Retrieve a Single Value
+            </summary>
+            <param name="sqlStatement" type="string">
+                The SQL statement to execute
+            </param>
+            <returns>
+                The first column of the first row
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteUpdate(System.Type,System.String,System.String)">
+            <summary>
+                Directly Execute an Update where Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="updateClause" type="string">
+                The SQL update clause to use when updating data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteDelete(System.Type,System.String)">
+            <summary>
+                Directly Execute a Deletion where Needed
+            </summary>
+            <param name="objectType" type="System.Type">
+                The type of object to retrieve
+            </param>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteUpdate``1(System.String,System.String)">
+            <summary>
+                Directly Execute an Update where Needed
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <param name="updateClause" type="string">
+                The SQL update clause to use when updating data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ExecuteDelete``1(System.String)">
+            <summary>
+                Directly Execute a Deletion where Needed
+            </summary>
+            <param name="whereClause" type="string">
+                The SQL where clause to use when retrieving data
+            </param>
+            <returns>
+                An int value indicating rows affected
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.StartTracking(System.Object,Wilson.ORMapper.InitialState)">
+            <summary>
+                Start Tracking all Changes to an Object
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+            <param name="initialState" type="Wilson.ORMapper.InitialState">
+                The initial state of the object(s)
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.StartTracking(System.Collections.ICollection,Wilson.ORMapper.InitialState)">
+            <summary>
+                Start Tracking all Changes to a Collection
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+            <param name="initialState" type="Wilson.ORMapper.InitialState">
+                The initial state of the object(s)
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.EndTracking(System.Object)">
+            <summary>
+                End Tracking (Clear Cache) all Changes to an Object
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to end tracking and remove from cache
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.EndTracking(System.Collections.ICollection)">
+            <summary>
+                End Tracking (Clear Cache) all Changes to a Collection
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of objects to end tracking and remove from cache
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ClearTracking">
+            <summary>
+                Clear Tracking (Clear Cache) all Object Instances
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.MarkForDeletion(System.Object)">
+            <summary>
+                Mark Object for Deletion with PersistChanges
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.MarkForDeletion(System.Collections.ICollection)">
+            <summary>
+                Mark Collection for Deletion with PersistChanges
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.CancelChanges(System.Object)">
+            <summary>
+                Cancel all Changes to an Object since Tracking
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.CancelChanges(System.Collections.ICollection)">
+            <summary>
+                Cancel all Changes to a Collection since Tracking
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.PersistChanges(System.Object)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.PersistChanges(System.Collections.ICollection)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.PersistChanges(System.Object,Wilson.ORMapper.PersistDepth)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+            <param name="persistDepth" type="Wilson.ORMapper.PersistDepth">
+               The depth at which to persist child objects
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.PersistChanges(System.Collections.ICollection,Wilson.ORMapper.PersistDepth)">
+            <summary>
+                Save all Changes -- Insert, Update, or Delete
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+            <param name="persistDepth" type="Wilson.ORMapper.PersistDepth">
+                The depth at which to persist child objects
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.Resync(System.Object)">
+            <summary>
+                Get the Latest Version of Object from Database
+            </summary>
+            <param name="entityObject" type="object">
+                Object instance to perform action on
+            </param>
+            <returns>
+                The latest version of the object
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.Resync(System.Collections.ICollection)">
+            <summary>
+                Get the Latest Version of Collection from Database
+            </summary>
+            <param name="entityObjects" type="System.Collections.ICollection">
+                Collection of object instances to perform action on
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.Compile(Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Compiles an OPathQuery instance using this ObjectSpace as the mapping reference.
+            </summary>
+            <param name="query">OPathQuery to be compiled.</param>
+            <returns>A CompiledQuery object.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.Compile``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Compiles an OPathQuery instance using this ObjectSpace as the mapping reference.
+            </summary>
+            <param name="query">OPathQuery to be compiled.</param>
+            <returns>A CompiledQuery object.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Executes an OPathQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(Wilson.ORMapper.OPathQuery,System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(Wilson.ORMapper.CompiledQuery)">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject(Wilson.ORMapper.CompiledQuery,System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Executes an OPathQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1(Wilson.ORMapper.OPathQuery{``0},System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1(Wilson.ORMapper.CompiledQuery{``0})">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObject``1(Wilson.ORMapper.CompiledQuery{``0},System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.OPathQuery,System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.CompiledQuery)">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader(Wilson.ORMapper.CompiledQuery,System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.OPathQuery{``0},System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.CompiledQuery{``0})">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectReader``1(Wilson.ORMapper.CompiledQuery{``0},System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an ObjectReader holding the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectReader positioned at the beginning of the object data stream.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.OPathQuery,System.Object[])">
+            <summary>
+            Executes an OPathQuery against the database and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.CompiledQuery)">
+            <summary>
+            Executes a CompiledQuery against the database and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet(Wilson.ORMapper.CompiledQuery,System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the database and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Executes an OPathQuery against the data store and returns an ObjectSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An ObjectSet filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.OPathQuery{``0},System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.CompiledQuery{``0})">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetObjectSet``1(Wilson.ORMapper.CompiledQuery{``0},System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns the first matching object.
+            Null is returned if no object is found.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>The first object matching the query; or null if no match was found.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Executes an OPathQuery against the data store and returns an IList filled with the results.
+            </summary>
+            <param name="collectionType">Type of collection to return. Type specified must implement IList.</param>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An IList of the specified type, filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.OPathQuery,System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns an IList filled with the results.
+            </summary>
+            <param name="collectionType">Type of collection to return. Type specified must implement IList.</param>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An IList of the specified type, filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.CompiledQuery)">
+            <summary>
+            Executes an CompiledQuery against the data store and returns an IList filled with the results.
+            </summary>
+            <param name="collectionType">Type of collection to return. Type specified must implement IList.</param>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>An IList of the specified type, filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection(System.Type,Wilson.ORMapper.CompiledQuery,System.Object[])">
+            <summary>
+            Executes an CompiledQuery against the data store and returns an IList filled with the results.
+            </summary>
+            <param name="collectionType">Type of collection to return. Type specified must implement IList.</param>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An IList of the specified type, filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Executes an OPathQuery against the data store and returns an strongly-typed collection filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>An strongly-typed collection filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.OPathQuery{``0},System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns an strongly-typed collection filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An strongly-typed collection filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.CompiledQuery{``0})">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an strongly-typed collection filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>An strongly-typed collection filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetCollection``1(Wilson.ORMapper.CompiledQuery{``0},System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the data store and returns an strongly-typed collection filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>An strongly-typed collection filled with objects retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.OPathQuery)">
+            <summary>
+            Executes an OPathQuery against the data store and returns a DataSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>A DataSet filled with record retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.OPathQuery,System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns a DataSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>A DataSet filled with record retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.CompiledQuery)">
+            <summary>
+            Executes a CompiledQuery against the database and returns a DataSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>A DataSet filled with records retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet(Wilson.ORMapper.CompiledQuery,System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the database and returns a DataSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>A DataSet filled with records retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.OPathQuery{``0})">
+            <summary>
+            Executes an OPathQuery against the data store and returns a DataSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <returns>A DataSet filled with record retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.OPathQuery{``0},System.Object[])">
+            <summary>
+            Executes an OPathQuery against the data store and returns a DataSet filled with the results.
+            </summary>
+            <param name="query">OPathQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>A DataSet filled with record retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.CompiledQuery{``0})">
+            <summary>
+            Executes a CompiledQuery against the database and returns a DataSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <returns>A DataSet filled with records retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.GetDataSet``1(Wilson.ORMapper.CompiledQuery{``0},System.Object[])">
+            <summary>
+            Executes a CompiledQuery against the database and returns a DataSet filled with the results.
+            </summary>
+            <param name="compiledQuery">CompiledQuery to execute.</param>
+            <param name="parameters">Parameter values to use when executing the query.</param>
+            <returns>A DataSet filled with records retrieved from the data store.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.ToString(System.Object)">
+            <summary>
+                Debug String -- Includes List of all Values
+            </summary>
+            <param name="entityObject" type="object">
+                 Object instance to perform action on
+            </param>
+            <returns>
+                A string value...
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSpace.Dispose">
+            <summary>
+            Dispose is NOT needed for any IsolatedContext ObjectSpaces.
+            Dispose is ONLY needed if the AppDomain is not also ending.
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSpace.IsolatedContext">
+            <summary>
+                Create New ObjectSpace Context for Isolation
+            </summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSpace.QueryHelper">
+            <summary>
+                Get QueryHelper to Help Build Expressions
+            </summary>
+        </member>
+        <member name="M:Wilson.ORMapper.Internals.FieldMap.ConvertNullValue(System.String,System.Type)">
+            <summary>
+            Converts a string value or expression to the specified data type.
+            </summary>
+            <param name="expression">Value or expression to be converted.</param>
+            <param name="targetType">Data type to which the value or expression will be converted.</param>
+            <returns>Value converted to the specified type.</returns>
+            <remarks>
+            Expression Examples:
+            - null
+            - MinValue
+            - Int32.MinValue
+            - System.Int32.MinValue
+            - String.Empty
+            - Guid.Empty
+            - CustomNamespace.CustomType.MemberOrProperty
+            </remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.Internals.EntityKey.Equals(System.Object)">
+            <summary>
+            Determines if this EntityKey is equal to another object. The EntityKey is equal to another 
+            object if that object is an EntityKey, and the all the elements compare equal using 
+            <see cref="M:Wilson.ORMapper.Internals.EntityKey.Equals(Wilson.ORMapper.Internals.EntityKey)"/>.
+            </summary>
+            <param name="obj">Object to compare for equality.</param>
+            <returns>True if the objects are equal. False if the objects are not equal.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Internals.EntityKey.Equals(Wilson.ORMapper.Internals.EntityKey)">
+            <summary>
+            Determines if this EntityKey is equal to another object. The EntityKey is equal to another 
+            EntityKey if all the elements compare equal using using IComparable&lt;T&gt;.Equals or object.Equals.
+            </summary>
+            <param name="other">EntityKey to compare with for equality.</param>
+            <returns>True if the EntityKey are equal. False if the EntityKey are not equal.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.Internals.EntityKey.GetHashCode">
+            <summary>
+            Returns a hash code for the EntityKey, suitable for use in a hash-table or other hashed collection.
+            Two EntityKeys that compare equal (using Equals) will have the same hash code. The hash code for
+            the EntityKey is derived by combining the hash codes for each of the elements of the EntityKey.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Wilson.ORMapper.ObjectSet">
+             <summary>
+                 ObjectSet is a One-Way(Read) Bindable Collection of Objects
+             </summary>
+            	<example>The following example shows how to use the ObjectSet to
+            	retrieve all Contacts and bind them to a data grid.
+            	<code>
+            	public static ObjectSpace Manager; // See Initialization Example
+            
+            	ObjectSet contacts = Manager.GetObjectSet(typeof(Contact), string.Empty);
+            
+            	dataGrid.DataSource = contacts;
+             dataGrid.DataBind();
+            	</code>
+            	</example>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.ToString">
+            <summary>
+            Returns a string representing the type of this ObjectSet and the type of objects held.
+            </summary>
+            <returns>A string value.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.GetObject(System.Object)">
+            <summary>
+                Gets an object instance with the specified key
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+            <returns>
+                An object instance
+            </returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.Add(System.Object,System.Object)">
+            <summary>
+                Adds an object to the collection
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+            <param name="entityObject" type="object">
+            	The entity object to add to the collection
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.RemoveByKey(System.Object)">
+            <summary>
+                Removes an object from the collection with the specified key
+            </summary>
+            <param name="objectKey" type="object">
+            	The key for the object
+            </param>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.Add(System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use other Add Signature</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.Insert(System.Int32,System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use Add instead of Insert</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.Clear">
+            <summary>Removes all object from the collection</summary>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.Remove(System.Object)">
+            <summary>Not Supported</summary>
+            <remarks>Use RemoveKey instead of Remove</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ObjectSet.RemoveAt(System.Int32)">
+            <summary>Not Supported</summary>
+            <remarks>Use RemoveKey instead of RemoveAt</remarks>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.ObjectType">
+            <summary>The object type for this collection</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.PageIndex">
+            <summary>The current page number</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.PageCount">
+            <summary>The total number of pages for the query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.TotalCount">
+            <summary>The total number of objects for the query</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.Item(System.Int32)">
+            <summary>Gets or sets the element at the specified index.</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.IsReadOnly">
+            <summary>True if collection is read-only</summary>
+        </member>
+        <member name="P:Wilson.ORMapper.ObjectSet.IsFixedSize">
+            <summary>True if collection is fixed sized</summary>
+        </member>
+        <member name="T:Wilson.ORMapper.ArrayKeyComparer">
+            <summary>Represents special comparer and hashcode provider for System.Array subtypes.</summary>
+            <remarks>(RTS/GOP) Peter Goetzl (gop@rts.co.at) added this helper class. It allows to use composite
+            key types.</remarks>
+        </member>
+        <member name="M:Wilson.ORMapper.ArrayKeyComparer.Compare(System.Object,System.Object)">
+            <summary>Returns the sort oder of two System.Object instances.</summary>
+            <remarks>Null values are treated as smaller than any not null value.</remarks>
+            <param name="x">Object X.</param>
+            <param name="y">Object Y</param>
+            <returns>Returns 0 if X == Y; 1 if X smaller than Y; -1 if X greater than Y.</returns>
+        </member>
+        <member name="M:Wilson.ORMapper.ArrayKeyComparer.GetHashCode(System.Object)">
+            <summary>Computes special hashcode for arrays.</summary>
+            <remarks>If the object type is not derived from <see cref="T:System.Array"/> the computation is 
+            delegated to <see cref="M:System.Object.GetHashCode"/> method.</remarks>
+            <param name="obj">Object from where the hashcode is computed.</param>
+            <returns>Hashcode.</returns>
+        </member>
+        <member name="T:Wilson.ORMapper.CompiledQuery`1">
+            <summary>
+            A pre-compiled query that can be used by the ObjectSpace engine to return an ObjectReader or ObjectSet.
+            </summary>
+        </member>
+        <member name="T:Wilson.ORMapper.SelectProcedure`1">
+            <summary>
+                The SelectProcedure class is used to load an entity
+                object collection with a stored procedure.
+            </summary>
+            <example>The following example shows how to use the
+            SelectProcedure to get all Contacts with names that start with A.
+            	<code>
+            <![CDATA[
+            public static ObjectSpace Manager; // See Initialization Example
+            
+            // Get All Contacts with Names that start with A
+            SelectProcedure<Contact> selectProc = new SelectProcedure<Contact>("RetrieveContacts");
+            selectProc.AddParameter("@ContactName", "A");
+            ObjectSet<Contact> contacts = Manager.GetObjectSet<Contact>(selectProc);
+            ]]>
+            	</code>
+            </example>
+        </member>
+        <member name="M:Wilson.ORMapper.SelectProcedure`1.#ctor(System.String)">
+            <summary>Creates a new SelectProcedure instance</summary>
+            <param name="procedureName">The name of the procedure to be executed</param>
+        </member>
+    </members>
+</doc>

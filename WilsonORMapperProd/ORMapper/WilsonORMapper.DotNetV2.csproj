@@ -1,0 +1,347 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5023F45-094E-4D38-A69C-3754A94051F6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>WilsonORMapper</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Flow</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Wilson.ORMapper</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;DOTNETV2,DEBUG_MAPPER</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0618</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\ReleaseV2\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;DOTNETV2,DEBUG_MAPPER</DefineConstants>
+    <DocumentationFile>WilsonORMapper.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0618</NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Demo|AnyCPU' ">
+    <OutputPath>bin\DemoV2\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;DOTNETV2,DEBUG_MAPPER</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0618</NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Name>System.Data.OracleClient</Name>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompiledQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CompiledQuery_T.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Providers\Sql2005Commands.cs" />
+    <Compile Include="ObjectHolder_T.cs" />
+    <Compile Include="CustomProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IInterceptCommand.cs" />
+    <Compile Include="Internals\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Connection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Context.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\DemoLicense.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\EntityKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Instance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\LocalStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\AttributeMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\ChildMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\EntityMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\FieldMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\LookupMap.cs" />
+    <Compile Include="Internals\Mappings\ManyMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\Mappings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\ParentMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Mappings\RelationMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Parameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Providers\Commands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Providers\MSCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Providers\OracleCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Providers\ProviderFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IObjectHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IObjectNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IObjectSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectEnums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectList_T.cs" />
+    <Compile Include="ObjectQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectQuery_T.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectReader_T.cs" />
+    <Compile Include="ObjectSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectSet_T.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OPathQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OPathQuery_T.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Axis.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\BaseQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Binary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Context.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Empty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Expression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Filter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Function.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Literal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\ObjectExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPath.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPathCompiler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPathException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPathParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPathParameterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OPathParameterTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OrderBy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OrderByItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OrderByItemCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\OrderByJoin.cs" />
+    <Compile Include="Query\OrderByJoinCollection.cs" />
+    <Compile Include="Query\Parameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Parent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Parser\OPath_lex.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Parser\OPathLexer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Parser\OPathParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Parser\OPathSortParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Property.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\TypeFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\Unary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QueryHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelectProcedure.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelectProcedure_T.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transaction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Query\Parser\lex.exe" />
+    <None Include="Query\Parser\OPath.lex" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Query\Parser\lex.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

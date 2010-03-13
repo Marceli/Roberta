@@ -1,0 +1,26 @@
+﻿.TabRap
+{
+	border: 1px solid #000;
+	font: small Verdana;
+	border-collapse: collapse;
+	padding: 3px;
+}
+
+.TabRap td
+{
+	border: 1px solid Gray;
+	vertical-align: top;
+}
+
+.TabRap th
+{
+	border: 1px solid Gray;
+	background-color: #ededed;
+	color: #0f0f0f;
+}
+
+.TabStat
+{
+	font: small Verdana;
+	padding: 3px;
+}
