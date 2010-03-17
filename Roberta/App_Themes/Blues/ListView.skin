@@ -1,6 +1,0 @@
-<Roberta:ListView runat="server" PagerHorizontalAlign="left" PagerBottom="true"  PrevPageText="<" NextPageText=">" FirstPageText="<<"  LastPageText=">>" AddNewText="Dodaj" AddNewImage="~/Data/item_add.gif"
-	EditText="Edytuj" EditImage="~/Data/item_edit.gif" DeleteText="Usuñ" DeleteImage="~/Data/item_delete.gif"
-	TrueImage="~/Images/Common/checkTrue.gif" FalseImage="~/Images/Common/checkFalse.gif" CssListBox="listBox"
-	CssHeader="listHeader" CssMainRow="listMainRow" CssAltRow="listAltRow" CssHoverRow="listHoverRow" />
-	
-  
