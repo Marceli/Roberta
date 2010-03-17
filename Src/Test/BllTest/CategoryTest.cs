@@ -1,56 +1,96 @@
+using System.Linq;
+using BllTest;
+using Core.Data;
+using Core.Entities;
+using NHibernate;
 using NUnit.Framework;
-using Bll;
+using NHibernate.Linq;
 
-namespace BllTest
+namespace CoreTest
 {
-    [TestFixture]
-    public class CategoryTest : TestBase
-    {
-        [Test]
-        public void Basic()
-        {
-            Category c = new Category();
-            Assert.IsNotNull(c,"nie utworzy³ category");
-        }
-        [Test]
-        public void Save()
-        {
-            Category c = new Category();
-            c.Name = "olo";
-            c.Save(null);
-            int cid = c.Id;
-            Dm.ObjectSpace.ClearTracking();
-            Category fromDb = Dm.GetObject<Category>(cid);
-            Dm.ObjectSpace.ClearTracking();
-            Assert.IsTrue(fromDb.Id>0, "nie zapisa³ category");
-        }
-        [Test]
-        public void SaveWithProduct()
-        {
-           // ts.Dispose();
-            Category c = new Category();
-            c.Name = "olo";
-           
-           
-            Product p = new Product();
-            p.Title = "olo";
-            
-            c.Products.Add(p);
-            Product p2 = new Product();
-            p2.Title = "olo2";
+	[TestFixture]
+	public class CategoryTest 
+	{
+		ISessionFactory factory;
+		[TestFixtureSetUp]
+		public void CreateFactory()
+		{
+			factory = new SessionProvider().Factory;
+		}
 
-            c.Products.Add(p2);
-            //p.CategoryId = c.Id;
-            
-            c.Save(null);
-            Assert.IsTrue(c.Id > 0, "nie zapisa³ category");
-            Assert.IsTrue(p.Id > 0, "nie zapisa³ produktu");
-           
-            int cid = c.Id;
-            Dm.ObjectSpace.ClearTracking();
-            Category fromDb = Dm.GetObject<Category>(cid);
-            Assert.IsTrue(fromDb.Products[0].CategoryId == cid, "NIE ZAPISA£ PRODUKTÓW");
-            Assert.IsTrue(fromDb.Products.Count==2,"NIE ZAPISA£ PRODUKTÓW");
-        }
-    }
+		[TestFixtureTearDown]
+		public void DisposeFactory()
+		{
+			factory.Dispose();
+		}
+
+		[Test]
+		public void ConfigurationTest()
+		{
+			using (var session = new SessionProvider().Create()) { }
+		}
+
+
+		[Test]
+		public void CanReadAndSaveCategory()
+		{
+			int personId;
+			var category = new Category { Name = "Category" };
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+
+
+					session.Save(category);
+					transaction.Commit();
+				}
+			}
+			using (var session = factory.OpenSession())
+			{
+				using (session.BeginTransaction())
+				{
+					var categoryFromDb = (from c in ((IOrderedQueryable<Category>)session.Linq<Category>()) where c.Id == category.Id select c).First();
+					Assert.That(categoryFromDb.Name=="Category");
+				}
+			}
+		}
+
+		[Test]
+		public void CanCreateCategory()
+		{
+			var c = new Category();
+			Assert.IsNotNull(c);
+		}
+		public void SaveWithProduct()
+		{
+			// ts.Dispose();
+			var c = new Category { Name = "olo" };
+
+
+			var p = new Product { Title = "olo" };
+
+			c.Products.Add(p);
+			var p2 = new Product { Title = "olo2" };
+			Category fromDb;
+			c.Products.Add(p2);
+			//p.CategoryId = c.Id;
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					session.Save(c);
+					transaction.Commit();
+				}
+			}
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					fromDb = session.Get<Category>(c.Id);
+				}
+				Assert.That(fromDb.Products.Count == 2);
+			}
+		}
+	}
 }

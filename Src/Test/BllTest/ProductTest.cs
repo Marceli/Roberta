@@ -1,45 +1,83 @@
+using System.Linq;
+using Core.Data;
+using Core.Entities;
+using NHibernate;
 using NUnit.Framework;
-using Bll;
 
 namespace BllTest
 {
     [TestFixture]
-    public class ProductTest :TestBase
+    public class ProductTest 
     {
+		ISessionFactory factory;
+		[TestFixtureSetUp]
+		public void CreateFactory()
+		{
+			factory = new SessionProvider().Factory;
+		}
+
+		[TestFixtureTearDown]
+		public void DisposeFactory()
+		{
+			factory.Dispose();
+		}
+
         [Test]
         public void Basic()
         {
-            Product p = new Product();
+            var p = new Product();
             Assert.IsNotNull(p, "nie utworzy³");
         }
-        [Test]
-        public void Save()
-        {
-            Category c = new Category();
-            c.Save(null);
-            c.Name = "olo";
-            Product p = new Product();
-            p.Category = c;
-            p.Save(null);
-            Assert.IsTrue(p.Id>0, "nie zapisa³");
-        }
-        
-        [Test]
+		[Test]
+		public void Save()
+		{
+
+			var c = new Category {Name = "olo"};
+			var p = new Product {Category = c};
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					session.Save(c);
+					session.Save(p);
+					transaction.Commit();
+				}
+			}
+			Product fromDb;
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					fromDb = session.Get<Product>(p.Id);
+					Assert.That(fromDb.Category.Id == c.Id);
+				}
+			}
+		}
+
+
+    	[Test]
         public void SaveWithPicture()
-        {           
-            Product p = new Product();
-            p.Title = "Tytu³";
-            p.Price = 90m;
-            p.Description = "jakisopis";
-            p.CategoryId = Dm.RetrieveAll<Category>()[0].Id;
-            Picture pic = new Picture();
+        {
+    		Product p;
             
-            p.Pictures.Add(pic);
-            p.Save(null);
-            int zapisanyId = p.Id;
-            Dm.ObjectSpace.ClearTracking();
-            Product fromDb = Dm.GetObject<Product>(zapisanyId);           
-            Assert.AreEqual(1,fromDb.Pictures.Count);
+			using (var session = factory.OpenSession())
+			{
+				using (var transaction = session.BeginTransaction())
+				{
+					p = new Product { Title = "Tytu³", Price = 90m, Description = "jakisopis" };
+					session.Save(p); 
+					var pic = new Picture();
+					p.AddPicture(pic);
+				
+					transaction.Commit();
+				}
+			}
+			using (var session = factory.OpenSession())
+			{
+				var fromDb=session.Get<Product>(p.Id);
+			
+				Assert.That(fromDb.Pictures.Count(),Is.EqualTo(1));
+			}
         }
     }
 }

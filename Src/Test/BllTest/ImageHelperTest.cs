@@ -14,12 +14,10 @@ namespace TestBllProjekt
         [Test]
         public void ResizeTest()
         {
-            string WorkingDirectory = @"C:\";
-            Image imgPhotoVert = Image.FromFile(WorkingDirectory +
-                                            @"\bolo.bmp");
-            Image converted=ImageHelper.FixedSize(imgPhotoVert, 128, 96);
-            converted.Save(WorkingDirectory +
-    @"\bolo_smal.bmp", ImageFormat.Bmp);
+            
+            var imgPhotoVert = Image.FromFile("olo.bmp");
+            var converted=ImageHelper.FixedSize(imgPhotoVert, 128, 96);
+            converted.Save(@"olo_small.bmp", ImageFormat.Bmp);
             
             
         }
