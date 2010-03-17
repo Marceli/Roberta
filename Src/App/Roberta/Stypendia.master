@@ -1,0 +1,165 @@
+<%@ Master Language="C#" AutoEventWireup="true" EnableTheming="true" CodeFile="Stypendia.master.cs" Inherits="Stypendia" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>System Stypendialny</title>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" ShowStartingNode="False" />
+        <asp:HiddenField ID="HiddenLeftWidth" runat="server" />
+        <table style="height: 80px; width: 100%; table-layout: fixed" border="0" cellpadding="0"
+            cellspacing="0">
+            <tr>
+                <td class="MasterTd1"></td>
+                <td class="MasterTd2"></td>
+                <td class="MasterTd3"></td>
+            </tr>
+        </table>
+        <table id="MenuHolder" cellpadding="0" cellspacing="0" style="width: 100%" runat="server">
+            <tr style="height: 20px;">
+                <td style="background-color: #132856; width: 160px; height: 20px;">
+                </td>
+                <td style="background-color: #132856; height: 20px;">
+                    <div class="navmenu" style="background-color: #132856;">
+                    
+                         <asp:Menu ID="MainMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="0px"
+                            DataSourceID="SiteMapDataSource" BackColor="#132856" ForeColor="#FFFFFF" Font-Size="Small" Width="433px">
+                            <DynamicHoverStyle BorderColor="#A6BCB2" BackColor="#A6BCB2" ForeColor="Black" BorderStyle="Solid" />
+                            <DynamicSelectedStyle HorizontalPadding="20px" BorderColor="#A6BCB2" BackColor="#A6BCB2"
+                                ForeColor="Black" BorderStyle="Solid" />
+                            <DynamicMenuItemStyle HorizontalPadding="20px" VerticalPadding="0px" BorderColor="#E0E8DE"
+                                BackColor="#E0E8DE" ForeColor="Black" BorderStyle="Solid" />
+                            <StaticMenuItemStyle BorderColor="#132856" HorizontalPadding="0px" ForeColor="White"
+                                VerticalPadding="0px" BorderStyle="Solid" ItemSpacing="20px" />
+                            <StaticSelectedStyle BorderColor="#7A9F8F" BackColor="#7A9F8F" ForeColor="White"
+                                BorderStyle="Solid" />
+                            <StaticHoverStyle BorderColor="#7A9F8F" BackColor="#7A9F8F" ForeColor="White" BorderStyle="Solid" />
+                        </asp:Menu>
+                        
+
+                   
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 10px; font-size:xx-small">
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <table id="Tab" style="width: 100%">
+            <tr class="container">
+                <td id="tdLeft" class="leftbox" style="width: 136px">
+                    <table border="0" cellpadding="0" cellspacing="0" width="150px">
+                        <tr>
+                            <td>
+                                <asp:LoginView ID="LoginView" runat="server">
+                                    <AnonymousTemplate>
+                                        <asp:Login ID="Login" runat="server" DisplayRememberMe="False" FailureText="Logowanie nieudane."
+                                            PasswordRequiredErrorMessage="Wymagane jest podanie has³a." UserNameRequiredErrorMessage="Wymagane jest podanie nazwy u¿ytkownika."
+                                            VisibleWhenLoggedIn="False" Style="width: 100%" BackColor="#E0E8DE" Font-Names="Verdana"
+                                            Font-Size="Small" ForeColor="#333333">
+                                            <LayoutTemplate>
+                                                <table style="border-collapse: collapse; width: 100%">
+                                                    <tr>
+                                                        <td>
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td align="center" style="background-color: #7A9F8F; font-weight: bold; font-size: small;
+                                                                        height: 20px; width: 100%; color: white; text-align: center; vertical-align: middle">
+                                                                        Logowanie</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">U¿ytkownik:</asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em" AutoCompleteType="DisplayName"
+                                                                            Width="80%"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
+                                                                            ErrorMessage="Wymagane jest podanie nazwy u¿ytkownika." ToolTip="Wymagane jest podanie nazwy u¿ytkownika."
+                                                                            ValidationGroup="ctl00$Login">*</asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Has³o:</asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password" AutoCompleteType="Disabled"
+                                                                            Width="80%"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
+                                                                            ErrorMessage="Wymagane jest podanie has³a." ToolTip="Wymagane jest podanie has³a."
+                                                                            ValidationGroup="ctl00$Login">*</asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" style="color: red">
+                                                                        <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right" style="height: 18px">
+                                                                        <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                                                                            BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana"
+                                                                            Font-Size="0.8em" ForeColor="black" Text="Loguj" ValidationGroup="ctl00$Login" />
+                                                                    </td>
+                                                                </tr>                                                                
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </LayoutTemplate>
+                                        </asp:Login>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <table style="border-collapse: collapse; width: 100%">
+                                            <tr>
+                                                <td style="background-color: #E0E8DE">
+                                                    <table style="width:100%">
+                                                        <tr>
+                                                            <td style="color: White; background-color: #7A9F8F; font-size: small; font-weight: bold;
+                                                                height: 20px; width: 100%; text-align: center; vertical-align: middle">
+                                                                Zalogowany
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="height: 20px; text-align: center; vertical-align: middle">
+                                                                <asp:LoginName ID="LoginName" runat="server" ForeColor="Black" Font-Size="small" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="height: 20px; text-align: center; vertical-align: middle">
+                                                                <asp:LoginStatus ID="LoginStatus" runat="server" LoginText="Loguj" LogoutText="Wyloguj"
+                                                                    BorderColor="#E0E8DE" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td id="tdSplitter" class="spliter">
+                </td>
+                <td id="tdRight" class="content">
+                    <asp:MultiView ID="MultiViewContent" runat="server" ActiveViewIndex="0">
+                        <asp:View ID="ViewContent" runat="server">
+                            <asp:ContentPlaceHolder ID="Content" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </asp:View>
+                    </asp:MultiView>
+                    <div class="divStopka">VULCAN (c) 2006</div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

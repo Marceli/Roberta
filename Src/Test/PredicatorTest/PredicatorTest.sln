@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicatorTest", "PredicatorTest\PredicatorTest.csproj", "{A3A164A7-9680-436E-AAA0-62E0F9DB13EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{B8D7FB2C-A71C-4584-BC6C-1BD1806EC42A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3A164A7-9680-436E-AAA0-62E0F9DB13EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A164A7-9680-436E-AAA0-62E0F9DB13EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A164A7-9680-436E-AAA0-62E0F9DB13EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A164A7-9680-436E-AAA0-62E0F9DB13EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D7FB2C-A71C-4584-BC6C-1BD1806EC42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D7FB2C-A71C-4584-BC6C-1BD1806EC42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D7FB2C-A71C-4584-BC6C-1BD1806EC42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D7FB2C-A71C-4584-BC6C-1BD1806EC42A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
