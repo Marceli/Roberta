@@ -1,0 +1,13 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-access="property" auto-import="true" default-cascade="none" default-lazy="true">
+  <class xmlns="urn:nhibernate-mapping-2.2" name="Core.Entities.Picture, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Picture`">
+    <id name="Id" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Id" />
+      <generator class="hilo">
+        <param name="max_lo">1000</param>
+      </generator>
+    </id>
+    <many-to-one class="Core.Entities.Product, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Product">
+      <column name="Product_id" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>
