@@ -74,9 +74,10 @@
     <Compile Include="EnumFormatter.cs" />
     <Compile Include="Data\CollectionConvention.cs" />
     <Compile Include="Entities\Picture.cs" />
+    <Compile Include="Extensions\IQueryableExtension.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="IValidable.cs" />
-    <Compile Include="MembershipProvider.cs">
+    <Compile Include="MyMembershipProvider.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
