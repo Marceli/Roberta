@@ -1,0 +1,27 @@
+<%@ Page Language="C#" MasterPageFile="~/Stypendia.master" AutoEventWireup="true" CodeFile="Lokalizacje.aspx.cs" Inherits="Administracja_Lokalizacje" Title="System Stypendialny" %>
+<%@ Register Src="../Komponenty/LokalizacjaView.ascx" TagName="LokalizacjaList" TagPrefix="uc" %>
+<%@ Register Src="../Komponenty/LokalizacjaListView.ascx" TagName="LokalizacjaListView" TagPrefix="uc" %>
+<%@ Register Src="../Komponenty/AdmUprawnieniaDoLokalizacjiLista.ascx" TagName="UprawnieniaListView" TagPrefix="uc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
+    <asp:MultiView ID="Multi" runat="server" ActiveViewIndex="0">
+        <asp:View ID="LokalizacjaGridView" runat="Server">
+            <uc:LokalizacjaListView ID="LokGridView" runat="server" />
+        </asp:View>
+        <asp:View ID="ItemView" runat="server">
+            <div class="divHeader">Lokalizacja</div>    
+            <uc:LokalizacjaList Id="LokalizacjaItemView" runat="Server" />
+            <asp:ValidationSummary ID="ValidSum" runat="server" CssClass="validSum" />
+            <div id="ValidOut" runat="server" visible="false" class="validSum"></div>
+            <asp:Button ID="SaveLokalizacja" runat="server" Text="Zapisz" OnClick="ZapiszLokalizacje" />        
+            &nbsp;
+            <asp:Button ID="PermBtn" runat="server" Text="Uprawnienia" OnClick="OnPermBtnClick" CausesValidation="false" />
+            &nbsp;
+            <asp:Button ID="CancelBtn" runat="server" Text="Anuluj" OnClick="OnCancelBtnClick" CausesValidation="false"/>
+        </asp:View>
+        <asp:View ID="PermView" runat="server">
+            <uc:UprawnieniaListView ID="Uprawnienia" runat="server" />
+            <asp:Button ID="PrevBtn" runat="server" Text="Powrót" OnClick="OnPrevBtnClick" CausesValidation="false"/>
+        </asp:View>
+    </asp:MultiView>
+</asp:Content>
+
