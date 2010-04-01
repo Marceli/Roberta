@@ -1,4 +1,7 @@
-<%@ Page Language="C#" Inherits="Roberta.WebControls.PageBase" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryPage.aspx.cs" Inherits="Web.CategoryPage" %>
+<%@ Import Namespace="Roberta.WebControls"%>
+<%@ Import Namespace="Web"%>
+<%@ Import Namespace="Core.Entities"%>
 
 <%@ Register Src="Komponenty/CategoryEdit.ascx" TagName="CategoryEdit" TagPrefix="uc2" %>
 
@@ -6,47 +9,10 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<script runat="server">
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        CategoryList1.EditRow += new OnEditRowClick;
-        CategoryList1.deleteRow += new OndeleteRow;
-    }
-    protected void OndeleteRow(int rowId)
-    {
-        Category c=Dm.GetObject<Category>(rowId);
-        c.Delete(null);
-       
-    }
 
-    protected void OnEditRowClick(int rowId)
-    {
-        CategoryList1.Visible = false;
-        EditPanel.Visible = true;
-        CategoryEdit1.InitData<Product>(rowId, DetailsViewMode.Edit);
-    }
-
-
-    protected void AnulujBtn_Click(object sender, EventArgs e)
-    {
-        CategoryList1.Visible = true;
-        EditPanel.Visible = false;
-
-    }
-
-    protected void ZapiszBtn_Click(object sender, EventArgs e)
-    {
-        Category p = CategoryEdit1.GetEntity<Category>();
-
-        p.Save(null);
-        CategoryList1.Visible = true;
-        EditPanel.Visible = false;
-
-    }
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Untitled Page</title>
 </head>
 <body>

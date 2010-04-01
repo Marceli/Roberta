@@ -22,13 +22,19 @@ namespace Roberta.WebControls
         private int pageNumber = 1;
 
         private event OnEditRow editRow;
-        public event OnDeleteRow deleteRow;
+        private event OnDeleteRow deleteRow;
 
-        public OnEditRow EditRow
-        {
-            get { return editRow; }
-            set { editRow = value; }
-        }
+		public OnEditRow EditRow
+		{
+			get { return editRow; }
+			set { editRow = value; }
+		}
+
+		public OnDeleteRow DeleteRow
+		{
+			get { return deleteRow; }
+			set { deleteRow = value; }
+		}
 
         public string FiltrMember
         {

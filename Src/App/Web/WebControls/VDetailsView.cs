@@ -57,9 +57,9 @@ public class VDetailsView : UserControl
 
 	public virtual void ChangeMode<T>(DetailsViewMode mode) 
 	{
-		Control itemTable = GetItemTable();
-		Control editTable = GetEditTable();
-		Control insertTable = GetInsertTable();
+		var itemTable = GetItemTable();
+		var editTable = GetEditTable();
+		var insertTable = GetInsertTable();
 
 		if (mode == DetailsViewMode.Insert)
 		{

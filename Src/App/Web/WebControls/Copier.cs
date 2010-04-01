@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 
 
 using System.Collections.Generic;
+using FreeTextBoxControls;
 
 namespace Web.WebControls
 {
@@ -81,13 +82,15 @@ namespace Web.WebControls
 
 		public static void ToEntity<T>(T entity, Control view, string suffix)
 		{
-			Type entityType = typeof(T);
-			PropertyInfo[] pi = entityType.GetProperties(BindingFlags.Instance | BindingFlags.SetProperty | BindingFlags.Public);
-			foreach (PropertyInfo info in pi)
+			var entityType = typeof(T);
+			var pi = entityType.GetProperties(BindingFlags.Instance | BindingFlags.SetProperty | BindingFlags.Public);
+			foreach (var info in pi)
 			{
-				Control ctrl = view.FindControl(GetCtrlName(info.Name, suffix));
+				var ctrl = view.FindControl(GetCtrlName(info.Name, suffix));
 				if (ctrl is TextBox)
 					info.SetValue(entity, GetTypedValue(info.PropertyType, ((TextBox)ctrl).Text), null);
+				else if (ctrl is FreeTextBox)
+					info.SetValue(entity, GetTypedValue(info.PropertyType, ((FreeTextBox)ctrl).Text), null);
 				else if (ctrl is Label)
 					info.SetValue(entity, GetTypedValue(info.PropertyType, ((Label)ctrl).Text), null);
 				else if (ctrl is DropDownList)
@@ -121,10 +124,7 @@ namespace Web.WebControls
 			if (t == typeof(int))
 			{
 				int res;
-				if (int.TryParse(val, out res))
-					return res;
-
-				return 0;
+				return int.TryParse(val, out res) ? res : 0;
 			}
 			if (t == typeof(decimal))
 			{
@@ -135,10 +135,7 @@ namespace Web.WebControls
 			if (t == typeof(DateTime))
 			{
 				DateTime res;
-				if (DateTime.TryParse(val, out res))
-					return res;
-
-				return DateTime.Now;
+				return DateTime.TryParse(val, out res) ? res : DateTime.Now;
 			}
 			if (t.IsEnum)
 			{

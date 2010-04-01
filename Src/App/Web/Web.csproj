@@ -78,16 +78,37 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryPage.aspx.cs">
+      <DependentUpon>CategoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryPage.aspx.designer.cs">
+      <DependentUpon>CategoryPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Db.asax.cs" />
     <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Komponenty\CategoryList.ascx.cs">
+      <DependentUpon>CategoryList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Komponenty\CategoryList.ascx.designer.cs">
+      <DependentUpon>CategoryList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Komponenty\ProductEdit.ascx.cs">
+      <DependentUpon>ProductEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Komponenty\ProductEdit.ascx.designer.cs">
+      <DependentUpon>ProductEdit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stypendia.master.cs">
@@ -169,7 +190,11 @@
     <None Include="FTB\FreeTextBox\officeXP\subs\Thumbs.db" />
     <None Include="FTB\FreeTextBox\officeXP\Thumbs.db" />
     <None Include="FTB\FreeTextBox\utility\Thumbs.db" />
+    <Content Include="CategoryPage.aspx" />
+    <Content Include="Core.csproj" />
     <Content Include="Global.asax" />
+    <Content Include="Komponenty\CategoryList.ascx" />
+    <Content Include="Komponenty\ProductEdit.ascx" />
     <Content Include="WebS.Config" />
     <Content Include="Web.sitemap" />
     <Content Include="Stypendia.master" />
@@ -815,7 +840,7 @@
     <Content Include="aspnet_client\FreeTextBox\utility\folder.small.gif" />
     <Content Include="aspnet_client\FreeTextBox\utility\folder.up.gif" />
     <Content Include="aspnet_client\FreeTextBox\utility\image.gif" />
-    <Content Include="CategoryPage.aspx" />
+    <Content Include="CategoryPage2.aspx" />
     <Content Include="Data\2babelki.bmp2babelki.bmp" />
     <Content Include="Data\2bolo.bmp2bolo.bmp" />
     <Content Include="Data\2bolo.bmp2bolo.bmp128x96.jpg" />
@@ -1573,9 +1598,7 @@
     <Content Include="FTB\FreeTextBox\utility\folder.up.gif" />
     <Content Include="FTB\FreeTextBox\utility\image.gif" />
     <Content Include="Komponenty\CategoryEdit.ascx" />
-    <Content Include="Komponenty\CategoryList.ascx" />
     <Content Include="Komponenty\ProductList.ascx" />
-    <Content Include="Komponenty\ProduktEdit.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Test.htm" />
@@ -1584,7 +1607,7 @@
     <EmbeddedResource Include="licenses.licx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\2_BLL\Core.csproj">
+    <ProjectReference Include="..\BLL\Core.csproj">
       <Project>{AFD6948B-AB96-4213-B306-C108715549D8}</Project>
       <Name>Core</Name>
     </ProjectReference>

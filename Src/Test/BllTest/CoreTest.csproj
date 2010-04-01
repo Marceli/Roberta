@@ -94,16 +94,6 @@
     <Compile Include="ZdjecieTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Vendor\WilsonORMapperProd\ORMapper\WilsonORMapper.DotNetV2.csproj">
-      <Project>{A5023F45-094E-4D38-A69C-3754A94051F6}</Project>
-      <Name>WilsonORMapper.DotNetV2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\App\2_BLL\Core.csproj">
-      <Project>{AFD6948B-AB96-4213-B306-C108715549D8}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +137,15 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\App\BLL\Core.csproj">
+      <Project>{AFD6948B-AB96-4213-B306-C108715549D8}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

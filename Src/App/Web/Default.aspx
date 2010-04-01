@@ -1,100 +1,11 @@
-<%@ Page  Language="C#" AutoEventWireup="true" ClassName="Produkty" Inherits="Roberta.WebControls.PageBase" %>
+<%@ Page  Language="C#" AutoEventWireup="True" CodeBehind="Default.aspx.cs" Inherits="Web._Default" %>
 <%@ Import Namespace="Web"%>
 <%@ Import Namespace="Core.Entities"%>
 <%@ Import Namespace="Roberta.WebControls"%>
-<%@ Register Src="Komponenty/ProduktEdit.ascx" TagName="ProduktEdit" TagPrefix="Roberta" %>
+<%@ Register Src="Komponenty/ProductEdit.ascx" TagName="ProduktEdit" TagPrefix="Roberta" %>
 <%@ Register Src="Komponenty/ProductList.ascx" TagName="ProductList" TagPrefix="Roberta" %>
 <%@ Import Namespace="Bll" %>
 <script runat="server">
-protected void Page_Load(object sender, EventArgs e)
-   {
-       ProductList1.EditRow += new OnEditRow(OnEditRowClick);
-       ProductList1.deleteRow += new OnDeleteRow(ProductList1_deleteRow);
-       ProduktEdit1.Anuluj += new EventHandler(Anuluj);
-    
-       ProduktEdit1.Zapisz+= new EventHandler(Zapisz);
-       if(string.IsNullOrEmpty(GlobalSession.CurrentWebUser))
-       {
-           this.LogujLB.Text = "Zaloguj";
-       }else
-       {
-           this.LogujLB.Text = "Wyloguj";
-       }
-    
-    
-    
-   
-     
-   }
-
-    void ProductList1_deleteRow(int rowId)
-    {
-        
-        
-        var p = Db.Session.Get<Product>(rowId);
-    	Db.Session.Delete(p);
-    }
-    
-
-    protected void OnEditRowClick(int rowId)
-    {
-        
-        ProductList1.Visible=false;
-        EditPanel.Visible = true;
-        ProduktEdit1.NewProductCategory = ProductList1.FiltrValue;
-        ProduktEdit1.InitData(rowId, string.IsNullOrEmpty(GlobalSession.CurrentWebUser) ? DetailsViewMode.ReadOnly:DetailsViewMode.Edit);
-        
-    }
-
-
-    protected void Anuluj(object sender,EventArgs e)
-    {
-        ProductList1.Visible = true;
-        EditPanel.Visible=false;
-       
-    }
-
-    protected void Zapisz(object sender, EventArgs e)
-    {
-        Product p=ProduktEdit1.GetProduct();
-        Picture picture=null;
-
-        if (ProduktEdit1.UploadedFile.ContentLength > 0)
-        {
-            picture = new Picture();
-           
-            p.AddPicture(picture);
-            //p.Image = "Data/" + SaveFile(FileUpload1.PostedFile);
-        }
-        
-        Db.Session.Save(null);
-        
-        if(picture!=null)
-        {
-           
-            picture.SavePictures(ProduktEdit1.UploadedFile, ProduktEdit1.ImagePath);
-        }
-       
-        ProductList1.Visible = true;
-        EditPanel.Visible = false;
-
-    }
-
-
-
-    protected void LogujLB_Click(object sender, EventArgs e)
-    {
-        if (string.IsNullOrEmpty(GlobalSession.CurrentWebUser))
-        {
-            Response.Redirect("~/Login.aspx");
-        }
-        else
-        {
-            FormsAuthentication.SignOut();
-            Response.Redirect("~/default.aspx");
-        }
-
-    }
 </script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,7 +14,9 @@ protected void Page_Load(object sender, EventArgs e)
 <head runat="server">
     <title>Untitled Page</title>
 </head>
+
 <body>
+
     <form id="form1" runat="server">
     <div align="right">
         &nbsp;

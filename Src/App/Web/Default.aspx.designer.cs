@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Roberta.WebControls {
+namespace Web {
     
     
-    public partial class Default {
+    public partial class _Default {
         
         /// <summary>
         /// form1 control.
@@ -56,6 +56,6 @@ namespace Roberta.WebControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::VDetailsView ProduktEdit1;
+        protected global::Komponenty.ProductEdit ProduktEdit1;
     }
 }
