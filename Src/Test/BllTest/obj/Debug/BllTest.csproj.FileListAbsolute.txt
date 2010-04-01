@@ -1,0 +1,11 @@
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\BllTest.dll.config
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\BllTest.dll
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\BllTest.pdb
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\nunit.framework.dll
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\Roberta.Bll.dll
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\WilsonORMapper.dll
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\Roberta.Bll.pdb
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\bin\Debug\WilsonORMapper.pdb
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\obj\Debug\BllTest.dll
+C:\Praca\projects\Roberta\Roberta\Src\Test\BllTest\obj\Debug\BllTest.pdb

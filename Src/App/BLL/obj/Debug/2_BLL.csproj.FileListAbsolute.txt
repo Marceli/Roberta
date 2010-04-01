@@ -1,0 +1,8 @@
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\bin\Debug\Roberta.Bll.dll.config
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\bin\Debug\Roberta.Bll.dll
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\bin\Debug\Roberta.Bll.pdb
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\bin\Debug\WilsonORMapper.dll
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\bin\Debug\WilsonORMapper.pdb
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\obj\Debug\Roberta.Bll.dll
+C:\Praca\projects\Roberta\Roberta\Src\App\2_BLL\obj\Debug\Roberta.Bll.pdb

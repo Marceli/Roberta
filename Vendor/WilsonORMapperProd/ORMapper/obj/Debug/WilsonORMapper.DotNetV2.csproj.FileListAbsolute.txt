@@ -1,0 +1,5 @@
+C:\Praca\projects\Roberta\Roberta\Vendor\WilsonORMapperProd\ORMapper\bin\Debug\WilsonORMapper.dll
+C:\Praca\projects\Roberta\Roberta\Vendor\WilsonORMapperProd\ORMapper\bin\Debug\WilsonORMapper.pdb
+C:\Praca\projects\Roberta\Roberta\Vendor\WilsonORMapperProd\ORMapper\obj\Debug\ResolveAssemblyReference.cache
+C:\Praca\projects\Roberta\Roberta\Vendor\WilsonORMapperProd\ORMapper\obj\Debug\WilsonORMapper.dll
+C:\Praca\projects\Roberta\Roberta\Vendor\WilsonORMapperProd\ORMapper\obj\Debug\WilsonORMapper.pdb

@@ -1,0 +1,144 @@
+﻿using System;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using Core.Entities;
+using Roberta.WebControls;
+using Web;
+
+namespace Komponenty
+{
+	public partial class ProductEdit : VDetailsView
+	{
+		public event EventHandler Anuluj;
+		public event EventHandler Zapisz;
+
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+
+			if (string.IsNullOrEmpty(GlobalSession.CurrentWebUser))
+			{
+				EditBtn.Visible = false;
+			}
+			else
+			{
+				var script = @"<script type=text/javascript>function olo() {window.open('CategoryPage.aspx','Kategorie','menubar=1,resizable=1,scrollbars = yes, width=350,height=250');document.form1.submit();}<" + @"/script>";
+				Page.ClientScript.RegisterClientScriptBlock(typeof(Button), "olo", script);
+
+
+				//if(GetProduct()!=null)
+				//    this.CategoryEdit.SelectedValue = GetProduct().CategoryId.ToString();  
+			}
+		}
+		public override Control GetItemTable()
+		{
+			return ItemTable;
+		}
+		public string ImagePath
+		{
+			get { return Server.MapPath(@"./Data") + @"\"; }
+		}
+		public HttpPostedFile UploadedFile
+		{
+			get { return FileUpload1.PostedFile; }
+		}
+
+
+		public override Control GetEditTable()
+		{
+			return EditTable;
+		}
+
+		public override Control GetInsertTable()
+		{
+			return EditTable;
+		}
+
+
+
+		string newProductCategory = "";
+		public string NewProductCategory
+		{
+			get { return newProductCategory; }
+			set { newProductCategory = value; }
+
+		}
+		public Product GetProduct()
+		{
+			return GetEntity<Product>();
+		}
+		public void InitData(int? id, DetailsViewMode mode)
+		{
+			base.InitData<Product>(id, mode);
+			if (id == null)
+				return;
+			var product = Db.Session.Get<Product>(id);
+			if (product == null)
+				return;
+
+			if (mode == DetailsViewMode.Edit)
+			{
+
+				foreach (var picture in product.Pictures)
+				{
+					var tr = new TableRow();
+					var cel = new TableCell();
+					var i = new Image
+					{
+						ImageUrl = string.Format("{0}/Data/xs{1}.jpeg", Request.ApplicationPath, picture.Id)
+					};
+					cel.Controls.Add(i);
+					var b = new HtmlInputButton { Value = "Wstaw" };
+					b.Attributes.Add("OnClick", string.Format(@"javascript:InsertImage('{0}/data/xs{1}.jpeg')", Request.ApplicationPath, picture.Id));
+					cel.Controls.Add(b);
+					tr.Cells.Add(cel);
+					ZdjeciaTable.Rows.Add(tr);
+				}
+			}
+
+			DescriptionEdit.Text =product.Description;
+			CategoryEdit.DataBind();
+			if (product.Category != null)
+			{
+				CategoryEdit.SelectedValue = product.Category.Id.ToString();
+			}
+		}
+
+		protected void AnulujBtn_Click(object sender, EventArgs e)
+		{
+			if (Anuluj != null)
+				Anuluj(sender, e);
+
+
+		}
+		protected void ZapiszBtn_Click(object sender, EventArgs e)
+		{
+			if (Zapisz != null)
+				Zapisz(sender, e);
+
+
+		}
+		protected void EditBtn_Click(object sender, EventArgs e)
+		{
+			InitData(GetEntity<Product>().Id, DetailsViewMode.Edit);
+
+		}
+		protected void RefreshCategory(object sender, EventArgs e)
+		{
+			var selected = CategoryEdit.SelectedValue;
+			CategoryEdit.DataBind();
+			CategoryEdit.SelectedValue = selected;
+
+		}
+		protected void ReadOnlyBtn_Click(object sender, EventArgs e)
+		{
+			InitData<Product>(GetEntity<Product>().Id, DetailsViewMode.ReadOnly);
+		}
+		protected void Page_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
+}

@@ -1,0 +1,248 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:ActionInfo.cs" caret="4526" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:ListView.cs" caret="9499" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Global.asax.cs" caret="786" fromTop="32" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductList.ascx" caret="1788" fromTop="17" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.designer.cs" caret="5436" fromTop="10" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Administracja/f:Lokalizacje.aspx.cs.exclude" caret="191" fromTop="6" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:PageBase.cs" caret="466" fromTop="11" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Login.aspx" caret="0" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Test.aspx" caret="4" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.designer.cs" caret="723" fromTop="21" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:CategoryList.ascx.cs" caret="242" fromTop="13" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:CategoryPage.aspx.cs" caret="389" fromTop="14" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Web.config" caret="2385" fromTop="15" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Db.asax.cs" caret="199" fromTop="12" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:Copier.cs" caret="3059" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:VDetailsView.cs" caret="2754" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:CategoryEdit.ascx" caret="429" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:CategoryPage.aspx" caret="0" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:CategoryPage2.aspx" caret="0" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:UserControlBase.cs" caret="0" fromTop="0" />
+      <File id="A47DF02E-2052-4BA7-9A92-0FCFBA783C74/f:ImageHelperTest.cs" caret="365" fromTop="18" />
+      <File id="A47DF02E-2052-4BA7-9A92-0FCFBA783C74/f:ZdjecieTest.cs" caret="60" fromTop="3" />
+      <File id="AFD6948B-AB96-4213-B306-C108715549D8/d:Entities/f:Picture.cs" caret="475" fromTop="24" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.cs" caret="1512" fromTop="25" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx" caret="722" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx" caret="0" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="3380" fromTop="142" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.cs" caret="1295" fromTop="7" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:Copier.cs" caret="2614" fromTop="22" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:Copier.cs" caret="3539" fromTop="23" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:Copier.cs" caret="3765" fromTop="28" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:WebControls/f:VDetailsView.cs" caret="1374" fromTop="28" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="2437" fromTop="30" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="2589" fromTop="17" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="542" fromTop="10" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="488" fromTop="7" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.cs" caret="1637" fromTop="14" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.cs" caret="1502" fromTop="21" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx.cs" caret="1506" fromTop="24" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/f:Default.aspx" caret="722" fromTop="18" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="145" fromTop="6" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="13" fromTop="0" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="2913" fromTop="7" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="2266" fromTop="19" />
+      <File id="F3137C2F-2202-4759-876D-82096978016F/d:Komponenty/f:ProductEdit.ascx.cs" caret="2061" fromTop="15" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="return" priority="7" />
+      <Item value="true" priority="1" />
+      <Item value="new" priority="4" />
+      <Item value="List&lt;Product&gt;" priority="0" />
+      <Item value="Product" priority="9" />
+      <Item value="Name" priority="1" />
+      <Item value="category" priority="3" />
+      <Item value="Category" priority="6" />
+      <Item value="List&lt;Picture&gt;" priority="0" />
+      <Item value="virtual" priority="1" />
+      <Item value="value" priority="3" />
+      <Item value="private" priority="0" />
+      <Item value="id" priority="6" />
+      <Item value="transaction" priority="5" />
+      <Item value="session" priority="12" />
+      <Item value="c" priority="1" />
+      <Item value="SchemaExport" priority="0" />
+      <Item value="config" priority="0" />
+      <Item value="p" priority="6" />
+      <Item value="Assert" priority="0" />
+      <Item value="fromDb" priority="0" />
+      <Item value="pic" priority="1" />
+      <Item value="IEnumerable" priority="3" />
+      <Item value="public" priority="6" />
+      <Item value="Picture" priority="1" />
+      <Item value="picture" priority="6" />
+      <Item value="this" priority="2" />
+      <Item value="from" priority="0" />
+      <Item value="select" priority="1" />
+      <Item value="Is" priority="0" />
+      <Item value="IList" priority="0" />
+      <Item value="pictures" priority="0" />
+      <Item value="SessionProvider" priority="0" />
+      <Item value="sessionProvider" priority="2" />
+      <Item value="delegate" priority="0" />
+      <Item value="protected" priority="1" />
+      <Item value="void" priority="0" />
+      <Item value="HttpContext" priority="2" />
+      <Item value="BeginRequest" priority="0" />
+      <Item value="EndRequest" priority="1" />
+      <Item value="ITransaction" priority="0" />
+      <Item value="static" priority="4" />
+      <Item value="ISession" priority="2" />
+      <Item value="NHibernate" priority="1" />
+      <Item value="Application" priority="1" />
+      <Item value="global" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="sealed" priority="0" />
+      <Item value="where" priority="2" />
+      <Item value="IValidable" priority="0" />
+      <Item value="var" priority="1" />
+      <Item value="NewProductCategory" priority="0" />
+      <Item value="Db" priority="5" />
+      <Item value="IOrderedQueryable" priority="0" />
+      <Item value="Session" priority="1" />
+      <Item value="FilterList" priority="0" />
+      <Item value="orderby" priority="0" />
+      <Item value="SortMember" priority="1" />
+      <Item value="override" priority="0" />
+      <Item value="Extensions" priority="0" />
+      <Item value="SortAscending" priority="0" />
+      <Item value="ITEMS_COUNT" priority="0" />
+      <Item value="PageNumber" priority="0" />
+      <Item value="PageCount" priority="0" />
+      <Item value="if" priority="3" />
+      <Item value="null" priority="0" />
+      <Item value="default" priority="0" />
+      <Item value="T" priority="0" />
+      <Item value="entity" priority="0" />
+      <Item value="Activator" priority="0" />
+      <Item value="typeof" priority="0" />
+      <Item value="product" priority="3" />
+      <Item value="ProductEdit.ascx" priority="0" />
+      <Item value="Id" priority="0" />
+      <Item value="Web" priority="1" />
+      <Item value="Default" priority="0" />
+      <Item value="OnEditRow" priority="0" />
+      <Item value="deleteRow" priority="1" />
+      <Item value="OnDeleteRow" priority="1" />
+      <Item value="DescriptionEdit" priority="0" />
+      <Item value="ctrl" priority="0" />
+      <Item value="is" priority="0" />
+      <Item value="FreeTextBoxControls" priority="0" />
+      <Item value="else" priority="0" />
+      <Item value="FreeTextBox" priority="0" />
+      <Item value="ProduktEdit1" priority="0" />
+      <Item value="imgPhoto" priority="1" />
+      <Item value="result" priority="0" />
+      <Item value="Server" priority="0" />
+      <Item value="DataBinding" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Entities.Category">
+      <Item value="Id" priority="4" />
+      <Item value="Name" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ITransaction">
+      <Item value="Commit" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Get" priority="8" />
+      <Item value="Save" priority="6" />
+      <Item value="BeginTransaction" priority="0" />
+      <Item value="Linq" priority="1" />
+      <Item value="Delete" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.Tool.hbm2ddl.SchemaExport">
+      <Item value="Drop" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Entities.Product">
+      <Item value="Id" priority="2" />
+      <Item value="Category" priority="2" />
+      <Item value="pictures" priority="0" />
+      <Item value="AddPicture" priority="0" />
+      <Item value="Pictures" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="That" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Entities.Picture">
+      <Item value="Id" priority="0" />
+      <Item value="Product" priority="0" />
+      <Item value="SavePictures" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add" priority="0" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Is">
+      <Item value="EqualTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.HttpContext">
+      <Item value="Current" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContext">
+      <Item value="Items" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Data.SessionProvider">
+      <Item value="Factory" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISessionFactory">
+      <Item value="OpenSession" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Web.Db">
+      <Item value="Session" priority="15" />
+      <Item value="Products" priority="2" />
+      <Item value="Category" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.DropDownList">
+      <Item value="SelectedValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedQueryable`1">
+      <Item value="ToList" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="ToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="Equals" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Activator">
+      <Item value="CreateInstance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Komponenty.ProductEdit">
+      <Item value="GetEntity" priority="0" />
+      <Item value="UploadedFile" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ASP.categorypage_aspx">
+      <Item value="OnEditRowClick" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpPostedFile">
+      <Item value="InputStream" priority="0" />
+      <Item value="FileName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpServerUtility">
+      <Item value="MapPath" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
